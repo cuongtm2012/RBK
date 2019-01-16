@@ -58,6 +58,8 @@ public class RbkController {
 		// return cau dep array
 		caudepURL = String.format(caudepURL, todayDateStr);
 		rbkServices.alsCaudep(caudepURL, todayDateStr);
+		
+		
 		log.info("Finish!!!");
 		return date;
 	}

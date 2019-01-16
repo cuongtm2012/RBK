@@ -1,11 +1,11 @@
 package com.vn.rbk.domain;
 
-import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
 @Data
 public class trend {
-	String lotto = "";
-	Date ngaychot;
+	List<String> lotto;
+	String ngaychot;
 }

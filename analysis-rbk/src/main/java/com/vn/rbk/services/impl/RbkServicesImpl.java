@@ -16,6 +16,7 @@ import org.springframework.util.StringUtils;
 import com.vn.rbk.domain.caudep;
 import com.vn.rbk.domain.chotKQ;
 import com.vn.rbk.domain.ketqua;
+import com.vn.rbk.domain.trend;
 import com.vn.rbk.repository.base.RbkRepo;
 import com.vn.rbk.services.base.RbkServices;
 import com.vn.rbk.util.Utility;
@@ -39,12 +40,20 @@ public class RbkServicesImpl implements RbkServices{
 	public void alsKetquasx(String inputURL, String date){
 		ketqua kq = ketquasx(inputURL);
 		kq.setNgaychot(date);
-		rbkRepo.insertKetQua(kq);
+		boolean isExistKQ = rbkRepo.isExistKetQua(date);
+		if(!isExistKQ){
+			rbkRepo.insertKetQua(kq);
+		}
 	}
 	
 	@Override
 	public void alsTrend(String inputURL, String date){
-		trendArr(inputURL);
+		List<String> trending = trendArr(inputURL);
+		trend newTrend = new trend();
+		newTrend.setLotto(trending);
+		newTrend.setNgaychot(date);
+		rbkRepo.dltTrend(date);
+		rbkRepo.insertTrend(newTrend);
 	}
 
 	@Override
@@ -237,14 +246,19 @@ public class RbkServicesImpl implements RbkServices{
 		return kq;
 	}
 	
-	public String[] trendArr(String inputUrl){
-		String[] arrayTrend = new String[100];
+	public List<String> trendArr(String inputUrl){
+		List<String> trending = new ArrayList<>();
 		try {
-			
+			Document doc = Jsoup.connect(inputUrl).get();
+			Elements ketquaClass = doc.getElementsByClass("trend_number");
+			for (Element element : ketquaClass) {
+				String sodep = element.getElementsByClass("trend_number").html();
+				trending.add(sodep);
+			}
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
-		return arrayTrend;
+		return trending;
 	}
 	
 	public List<String> caudepArr(String inputUrl){

@@ -5,41 +5,48 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.vn.rbk.domain.caudep;
 import com.vn.rbk.domain.chotKQ;
 import com.vn.rbk.domain.ketqua;
+import com.vn.rbk.domain.trend;
 import com.vn.rbk.repository.MongoManager;
 import com.vn.rbk.repository.base.RbkRepo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Repository
-public class RbkRepoImpl implements RbkRepo{
+@Slf4j
+public class RbkRepoImpl implements RbkRepo {
 	public static MongoManager mongo = new MongoManager();
 
 	@Override
 	public void insertChotKQ(ArrayList<chotKQ> chotKQlist, String date) {
 		try {
 			for (chotKQ chotKQ2 : chotKQlist) {
-				BasicDBObject document = new BasicDBObject();
-				document.put("ngaychot", date);
-				document.put("lo", chotKQ2.getLo());
-				document.put("lodau", chotKQ2.getLodau());
-				document.put("lodit", chotKQ2.getLodit());
-				document.put("lobt", chotKQ2.getLobt());
-				document.put("dedau", chotKQ2.getDedau());
-				document.put("dedit", chotKQ2.getDedit());
-				document.put("debt", chotKQ2.getDebt());
-				document.put("email", chotKQ2.getEmail());
-				document.put("name", chotKQ2.getName());
-				document.put("rank", chotKQ2.getRank());
+				if (!isExistChotKQ(chotKQ2.getEmail(), date)) {
+					BasicDBObject document = new BasicDBObject();
+					document.put("ngaychot", date);
+					document.put("lo", chotKQ2.getLo());
+					document.put("lodau", chotKQ2.getLodau());
+					document.put("lodit", chotKQ2.getLodit());
+					document.put("lobt", chotKQ2.getLobt());
+					document.put("dedau", chotKQ2.getDedau());
+					document.put("dedit", chotKQ2.getDedit());
+					document.put("debt", chotKQ2.getDebt());
+					document.put("email", chotKQ2.getEmail());
+					document.put("name", chotKQ2.getName());
+					document.put("rank", chotKQ2.getRank());
 
-				document.put("ratio_de", chotKQ2.getRatio_de());
-				document.put("ratio_lo", chotKQ2.getRatio_lo());
-				document.put("ratio_lobt", chotKQ2.getRatio_lobt());
-				document.put("ratio_debt", chotKQ2.getDebt());
-				mongo.chotKQ().insert(document);
+					document.put("ratio_de", chotKQ2.getRatio_de());
+					document.put("ratio_lo", chotKQ2.getRatio_lo());
+					document.put("ratio_lobt", chotKQ2.getRatio_lobt());
+					document.put("ratio_debt", chotKQ2.getDebt());
+					mongo.chotKQ().insert(document);
+				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 	}
 
@@ -77,7 +84,7 @@ public class RbkRepoImpl implements RbkRepo{
 			document.put("kq26", kq.getKq1());
 			mongo.ketqua().insert(document);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 	}
 
@@ -89,7 +96,64 @@ public class RbkRepoImpl implements RbkRepo{
 			document.put("listcaudep", cd.getListCaudep());
 			mongo.caudep().insert(document);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
+		}
+	}
+
+	@Override
+	public boolean isExistKetQua(String ngaychot) {
+		BasicDBObject query = new BasicDBObject();
+		query.put("ngaychot", ngaychot);
+		DBCursor dbCursor = mongo.ketqua().find(query);
+		while (dbCursor.hasNext()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean isExistCauDep(String ngaychot) {
+		BasicDBObject query = new BasicDBObject();
+		query.put("ngaychot", ngaychot);
+		DBCursor dbCursor = mongo.caudep().find(query);
+		while (dbCursor.hasNext()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean isExistChotKQ(String email, String ngaychot) {
+		BasicDBObject query = new BasicDBObject();
+		query.put("email", email);
+		query.put("ngaychot", ngaychot);
+		DBCursor dbCursor = mongo.chotKQ().find(query);
+		while (dbCursor.hasNext()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void insertTrend(trend newTrend) {
+		try {
+			BasicDBObject document = new BasicDBObject();
+			document.put("ngaychot", newTrend.getNgaychot());
+			document.put("lotto", newTrend.getLotto());
+			mongo.trend().insert(document);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+	}
+
+	@Override
+	public void dltTrend(String date) {
+		try {
+			BasicDBObject document = new BasicDBObject();
+			document.put("ngaychot", date);
+			mongo.trend().remove(document);
+		} catch (Exception e) {
+			log.error(e.getMessage());
 		}
 	}
 }
