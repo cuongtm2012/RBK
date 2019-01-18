@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vn.rbk.AppConfig;
 import com.vn.rbk.services.base.RbkServices;
+import com.vn.rbk.util.GmailMsg;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,7 +36,7 @@ public class RbkController {
 		String chotkq = myConfig.getChotkq();
 		String trendURL = myConfig.getTrendURL();
 		String caudepURL = myConfig.getCaudepURL();
-
+		String caudepURLSW = myConfig.getCaudepURL();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date myDate = new Date();
 		try {
@@ -56,9 +57,13 @@ public class RbkController {
 		trendURL = String.format(trendURL, todayDateStr);
 		rbkServices.alsTrend(trendURL, todayDateStr);
 		// return cau dep array
-		caudepURL = String.format(caudepURL, todayDateStr);
+		caudepURL = String.format(caudepURL, todayDateStr, 0);
 		rbkServices.alsCaudep(caudepURL, todayDateStr);
+		// return cau dep SW array
+		caudepURLSW = String.format(caudepURLSW, todayDateStr, 1);
+		rbkServices.alsCaudepSW(caudepURLSW, todayDateStr);
 		
+		GmailMsg.process(date, "");
 		
 		log.info("Finish!!!");
 		return date;

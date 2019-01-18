@@ -24,6 +24,10 @@ public class MongoManager {
 	public DBCollection caudep() {
 		return initDB().getCollection("caudep");
 	}
+
+	public DBCollection caudepsw() {
+		return initDB().getCollection("caudepsw");
+	}
 	
 	public DBCollection trend() {
 		return initDB().getCollection("trend");

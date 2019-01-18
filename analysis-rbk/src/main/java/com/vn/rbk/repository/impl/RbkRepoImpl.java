@@ -167,4 +167,27 @@ public class RbkRepoImpl implements RbkRepo {
 			log.error(e.getMessage());
 		}
 	}
+
+	@Override
+	public boolean isExistCauDepSW(String date) {
+		BasicDBObject query = new BasicDBObject();
+		query.put("ngaychot", date);
+		DBCursor dbCursor = mongo.caudepsw().find(query);
+		while (dbCursor.hasNext()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void insertCauDepSW(caudep cd) {
+		try {
+			BasicDBObject document = new BasicDBObject();
+			document.put("ngaychot", cd.getNgaychot());
+			document.put("listcaudep", cd.getListCaudep());
+			mongo.caudepsw().insert(document);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+	}
 }

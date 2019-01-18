@@ -10,4 +10,6 @@ public interface RbkServices {
 
 	void alsCaudep(String inputURL, String date);
 
+	void alsCaudepSW(String inputURL, String date);
+
 }

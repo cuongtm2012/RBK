@@ -17,3 +17,5 @@ analysis-rbk/\.classpath
 analysis-rbk/\.settings/org\.eclipse\.wst\.common\.project\.facet\.core\.xml
 
 analysis-rbk/target/analysis-rbk-0\.0\.1-SNAPSHOT\.jar
+
+analysis-rbk/target/classes/

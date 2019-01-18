@@ -67,6 +67,17 @@ public class RbkServicesImpl implements RbkServices{
 		}
 	}
 	
+	@Override
+	public void alsCaudepSW(String inputURL, String date){
+		List<String> listCaudepSW = caudepArrSW(inputURL);
+		caudep cd = new caudep();
+		cd.setNgaychot(date);
+		cd.setListCaudep(listCaudepSW);
+		if(!rbkRepo.isExistCauDepSW(date)){
+			rbkRepo.insertCauDepSW(cd);
+		}
+	}
+	
 	public ArrayList<chotKQ> parseChotKQ(String chotkq) {
 		String content = "";
 		JSONArray de;
@@ -272,6 +283,30 @@ public class RbkServicesImpl implements RbkServices{
 				for (Element element : ketquaClass) {
 					String sodep = element.getElementsByClass("a_cau").html();
 					listCaudep.add(sodep);
+				}
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return listCaudep;
+	}
+	
+	
+	public List<String> caudepArrSW(String inputUrl){
+		List<String> listCaudep = new ArrayList<>();
+		try {
+			if (!StringUtils.isEmpty(inputUrl)) {
+				Document doc = Jsoup.connect(inputUrl).get();
+				Elements ketquaClass = doc.getElementsByClass("tbl1");
+				for (Element element : ketquaClass) {
+					Elements sodep = element.getElementsByTag("tr");
+					for (Element el : sodep) {
+						String col1 = el.getElementsByClass("col1").html();
+						Integer col2 = Integer.parseInt(el.getElementsByClass("col2").html().substring(0, 1));
+						if(col2 > 3){
+							listCaudep.add(col1);
+						}
+					}
 				}
 			}
 		} catch (Exception e) {

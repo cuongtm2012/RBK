@@ -26,5 +26,9 @@ public interface RbkRepo {
 	void dltTrend(String date);
 
 	void dltChotKQ(String email, String date);
+
+	boolean isExistCauDepSW(String date);
+
+	void insertCauDepSW(caudep cd);
 	
 }
