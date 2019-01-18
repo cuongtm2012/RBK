@@ -62,7 +62,9 @@ public class RbkServicesImpl implements RbkServices{
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
 		cd.setListCaudep(listCaudep);
-		rbkRepo.insertCauDep(cd);
+		if(!rbkRepo.isExistCauDep(date)){
+			rbkRepo.insertCauDep(cd);
+		}
 	}
 	
 	public ArrayList<chotKQ> parseChotKQ(String chotkq) {

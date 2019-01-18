@@ -24,5 +24,7 @@ public interface RbkRepo {
 	void insertTrend(trend newTrend);
 	
 	void dltTrend(String date);
+
+	void dltChotKQ(String email, String date);
 	
 }

@@ -24,7 +24,7 @@ public class RbkRepoImpl implements RbkRepo {
 	public void insertChotKQ(ArrayList<chotKQ> chotKQlist, String date) {
 		try {
 			for (chotKQ chotKQ2 : chotKQlist) {
-				if (!isExistChotKQ(chotKQ2.getEmail(), date)) {
+					dltChotKQ(chotKQ2.getEmail(), date);
 					BasicDBObject document = new BasicDBObject();
 					document.put("ngaychot", date);
 					document.put("lo", chotKQ2.getLo());
@@ -43,7 +43,6 @@ public class RbkRepoImpl implements RbkRepo {
 					document.put("ratio_lobt", chotKQ2.getRatio_lobt());
 					document.put("ratio_debt", chotKQ2.getDebt());
 					mongo.chotKQ().insert(document);
-				}
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -146,6 +145,18 @@ public class RbkRepoImpl implements RbkRepo {
 		}
 	}
 
+	@Override
+	public void dltChotKQ(String email, String date) {
+		try {
+			BasicDBObject document = new BasicDBObject();
+			document.put("ngaychot", date);
+			document.put("email", email);
+			mongo.chotKQ().remove(document);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+	}
+	
 	@Override
 	public void dltTrend(String date) {
 		try {
