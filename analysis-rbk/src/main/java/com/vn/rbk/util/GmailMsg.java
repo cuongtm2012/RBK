@@ -12,10 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GmailMsg {
 	public static void process(String date, String number) {
-		final String fromEmail = "cuong8888q@gmail.com"; // requires valid gmail
+		final String fromEmail = "cuong8888q@gmail.com"; 	// requires valid gmail
 															// id
-		final String password = "cuongtm2015"; // correct password for gmail id
-		final String toEmail = "cuongtm2012@gmail.com"; // can be any email id
+		final String password = "cuongtm2015"; 				// correct password for gmail id
+		final String toEmail = "cuongtm2012@gmail.com"; 	// can be any email id
 
 		log.debug("SSLEmail Start");
 		Properties props = new Properties();

@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ketqua {
+	String kqAr = "";
 	String kq0 = "";
 	String kq1 = "";
 	String kq2 = "";

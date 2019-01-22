@@ -30,5 +30,9 @@ public interface RbkRepo {
 	boolean isExistCauDepSW(String date);
 
 	void insertCauDepSW(caudep cd);
+
+	boolean isExistCauDep3Ngay(String date);
+
+	void insertCauDep3Ngay(caudep cd);
 	
 }

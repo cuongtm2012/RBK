@@ -12,4 +12,6 @@ public interface RbkServices {
 
 	void alsCaudepSW(String inputURL, String date);
 
+	void alsCau3Ngay(String caudepURL, String todayDateStr);
+
 }

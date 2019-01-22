@@ -37,21 +37,17 @@ public class RbkController {
 		String trendURL = myConfig.getTrendURL();
 		String caudepURL = myConfig.getCaudepURL();
 		String caudepURLSW = myConfig.getCaudepURL();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date myDate = new Date();
-		try {
-			myDate = dateFormat.parse(date);
-		} catch (ParseException e) {
-			log.error(e.getMessage());
-		}
-		String todayDateStr = dateFormat.format(myDate);
+		String cau3ngay = myConfig.getCau3ngay();
+
+		String todayDateStr = convertDateYYYYMMDD(date);
 		log.info(todayDateStr);
 		// get data from rongbachkim
 		// get list chot ket qua
 		chotkq = String.format(chotkq, todayDateStr);
 		rbkServices.alsChotKQ(chotkq, todayDateStr);
 		// return ket qua object
-		URL = String.format(URL, todayDateStr);
+		String todayDDMMYYYY = convertDateDDMMYYYY(date);
+		URL = String.format(URL, todayDDMMYYYY);
 		rbkServices.alsKetquasx(URL, todayDateStr);
 		// return trend array
 		trendURL = String.format(trendURL, todayDateStr);
@@ -62,11 +58,37 @@ public class RbkController {
 		// return cau dep SW array
 		caudepURLSW = String.format(caudepURLSW, todayDateStr, 1);
 		rbkServices.alsCaudepSW(caudepURLSW, todayDateStr);
+		// return cau 3 ngay
+		caudepURL = String.format(cau3ngay, todayDateStr);
+		rbkServices.alsCau3Ngay(caudepURL, todayDateStr);
 		
 		GmailMsg.process(date, "");
 		
 		log.info("Finish!!!");
 		return date;
+	}
+
+	private String convertDateDDMMYYYY(String date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat convert = new SimpleDateFormat("dd/MM/yyyy");
+		Date myDate = new Date();
+		try {
+			myDate = dateFormat.parse(date);
+		} catch (ParseException e) {
+			log.error(e.getMessage());
+		}
+		return convert.format(myDate);
+	}
+
+	private String convertDateYYYYMMDD(String date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date myDate = new Date();
+		try {
+			myDate = dateFormat.parse(date);
+		} catch (ParseException e) {
+			log.error(e.getMessage());
+		}
+		return dateFormat.format(myDate);
 	}
 
 }

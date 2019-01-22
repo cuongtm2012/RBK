@@ -52,36 +52,49 @@ public class RbkRepoImpl implements RbkRepo {
 	@Override
 	public void insertKetQua(ketqua kq) {
 		try {
+			delKetQua(kq.getNgaychot());
+			
 			BasicDBObject document = new BasicDBObject();
 			document.put("ngaychot", kq.getNgaychot());
+			document.put("kqAr", kq.getKqAr());
 			document.put("kq0", kq.getKq0());
 			document.put("kq1", kq.getKq1());
-			document.put("kq2", kq.getKq1());
-			document.put("kq3", kq.getKq1());
-			document.put("kq4", kq.getKq1());
-			document.put("kq5", kq.getKq1());
-			document.put("kq6", kq.getKq1());
-			document.put("kq7", kq.getKq1());
-			document.put("kq8", kq.getKq1());
-			document.put("kq9", kq.getKq1());
-			document.put("kq10", kq.getKq1());
-			document.put("kq11", kq.getKq1());
-			document.put("kq12", kq.getKq1());
-			document.put("kq13", kq.getKq1());
-			document.put("kq14", kq.getKq1());
-			document.put("kq15", kq.getKq1());
-			document.put("kq16", kq.getKq1());
-			document.put("kq17", kq.getKq1());
-			document.put("kq18", kq.getKq1());
-			document.put("kq19", kq.getKq1());
-			document.put("kq20", kq.getKq1());
-			document.put("kq21", kq.getKq1());
-			document.put("kq22", kq.getKq1());
-			document.put("kq23", kq.getKq1());
-			document.put("kq24", kq.getKq1());
-			document.put("kq25", kq.getKq1());
-			document.put("kq26", kq.getKq1());
+			document.put("kq2", kq.getKq2());
+			document.put("kq3", kq.getKq3());
+			document.put("kq4", kq.getKq4());
+			document.put("kq5", kq.getKq5());
+			document.put("kq6", kq.getKq6());
+			document.put("kq7", kq.getKq7());
+			document.put("kq8", kq.getKq8());
+			document.put("kq9", kq.getKq9());
+			document.put("kq10", kq.getKq10());
+			document.put("kq11", kq.getKq11());
+			document.put("kq12", kq.getKq12());
+			document.put("kq13", kq.getKq13());
+			document.put("kq14", kq.getKq14());
+			document.put("kq15", kq.getKq15());
+			document.put("kq16", kq.getKq16());
+			document.put("kq17", kq.getKq17());
+			document.put("kq18", kq.getKq18());
+			document.put("kq19", kq.getKq19());
+			document.put("kq20", kq.getKq20());
+			document.put("kq21", kq.getKq21());
+			document.put("kq22", kq.getKq22());
+			document.put("kq23", kq.getKq23());
+			document.put("kq24", kq.getKq24());
+			document.put("kq25", kq.getKq25());
+			document.put("kq26", kq.getKq26());
 			mongo.ketqua().insert(document);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+	}
+
+	private void delKetQua(String date) {
+		try {
+			BasicDBObject document = new BasicDBObject();
+			document.put("ngaychot", date);
+			mongo.ketqua().remove(document);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
@@ -186,6 +199,29 @@ public class RbkRepoImpl implements RbkRepo {
 			document.put("ngaychot", cd.getNgaychot());
 			document.put("listcaudep", cd.getListCaudep());
 			mongo.caudepsw().insert(document);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+	}
+
+	@Override
+	public boolean isExistCauDep3Ngay(String date) {
+		BasicDBObject query = new BasicDBObject();
+		query.put("ngaychot", date);
+		DBCursor dbCursor = mongo.caudep3ngay().find(query);
+		while (dbCursor.hasNext()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void insertCauDep3Ngay(caudep cd) {
+		try {
+			BasicDBObject document = new BasicDBObject();
+			document.put("ngaychot", cd.getNgaychot());
+			document.put("listcaudep", cd.getListCaudep());
+			mongo.caudep3ngay().insert(document);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}

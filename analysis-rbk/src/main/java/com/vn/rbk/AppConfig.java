@@ -12,7 +12,6 @@ import lombok.Data;
 @ConfigurationProperties
 @Data
 public class AppConfig {
-
 	@Value("${rbk.url}")
 	private String url;
 	@Value("${rbk.chotkq}")
@@ -21,5 +20,6 @@ public class AppConfig {
 	private String trendURL;
 	@Value("${rbk.caudepURL}")
 	private String caudepURL;
-
+	@Value("${rbk.cau3ngay}")
+	private String cau3ngay;
 }

@@ -78,6 +78,18 @@ public class RbkServicesImpl implements RbkServices{
 		}
 	}
 	
+
+	@Override
+	public void alsCau3Ngay(String inputURL, String date) {
+		List<String> listCau3Ngay = caudep3ngay(inputURL);
+		caudep cd = new caudep();
+		cd.setNgaychot(date);
+		cd.setListCaudep(listCau3Ngay);
+		if(!rbkRepo.isExistCauDep3Ngay(date)){
+			rbkRepo.insertCauDep3Ngay(cd);
+		}
+	}
+	
 	public ArrayList<chotKQ> parseChotKQ(String chotkq) {
 		String content = "";
 		JSONArray de;
@@ -190,39 +202,66 @@ public class RbkServicesImpl implements RbkServices{
 			String content = Utility.obtainContent(inputURL);
 
 			if (!StringUtils.isEmpty(content)) {
-				Document doc = Jsoup.parse(content);
+				content = content.substring(17,202).replaceAll("\"", "");
+				String[] kqArr = content.split(",");
+					String kq_0 = kqArr[0].toString();
+					String kq_1 = kqArr[1].toString();
+					String kq_2 = kqArr[2].toString();
+					String kq_3 = kqArr[3].toString();
+					String kq_4 = kqArr[4].toString();
+					String kq_5 = kqArr[5].toString();
+					String kq_6 = kqArr[6].toString();
+					String kq_7 = kqArr[7].toString();
+					String kq_8 = kqArr[8].toString();
+					String kq_9 = kqArr[9].toString();
+					String kq_10 = kqArr[10].toString();
+					String kq_11 = kqArr[11].toString();
+					String kq_12 = kqArr[12].toString();
+					String kq_13 = kqArr[13].toString();
+					String kq_14 = kqArr[14].toString();
+					String kq_15 = kqArr[15].toString();
+					String kq_16 = kqArr[16].toString();
+					String kq_17 = kqArr[17].toString();
+					String kq_18 = kqArr[18].toString();
+					String kq_19 = kqArr[19].toString();
+					String kq_20 = kqArr[20].toString();
+					String kq_21 = kqArr[21].toString();
+					String kq_22 = kqArr[22].toString();
+					String kq_23 = kqArr[23].toString();
+					String kq_24 = kqArr[24].toString();
+					String kq_25 = kqArr[25].toString();
+					String kq_26 = kqArr[26].toString();
+					
+					List<String> kqAr = new ArrayList<>();
+					kqAr.add(kq_0.substring(kq_0.length() - 2, kq_0.length()));
+					kqAr.add(kq_1.substring(kq_1.length() - 2, kq_1.length()));
+					kqAr.add(kq_2.substring(kq_2.length() - 2, kq_2.length()));
+					kqAr.add(kq_3.substring(kq_3.length() - 2, kq_3.length()));
+					kqAr.add(kq_4.substring(kq_4.length() - 2, kq_4.length()));
+					kqAr.add(kq_5.substring(kq_5.length() - 2, kq_5.length()));
+					kqAr.add(kq_6.substring(kq_6.length() - 2, kq_6.length()));
+					kqAr.add(kq_7.substring(kq_7.length() - 2, kq_7.length()));
+					kqAr.add(kq_8.substring(kq_8.length() - 2, kq_8.length()));
+					kqAr.add(kq_9.substring(kq_9.length() - 2, kq_9.length()));
+					kqAr.add(kq_10.substring(kq_10.length() - 2, kq_10.length()));
+					kqAr.add(kq_11.substring(kq_11.length() - 2, kq_11.length()));
+					kqAr.add(kq_12.substring(kq_12.length() - 2, kq_12.length()));
+					kqAr.add(kq_13.substring(kq_13.length() - 2, kq_13.length()));
+					kqAr.add(kq_14.substring(kq_14.length() - 2, kq_14.length()));
+					kqAr.add(kq_15.substring(kq_15.length() - 2, kq_15.length()));
+					kqAr.add(kq_16.substring(kq_16.length() - 2, kq_16.length()));
+					kqAr.add(kq_17.substring(kq_17.length() - 2, kq_17.length()));
+					kqAr.add(kq_18.substring(kq_18.length() - 2, kq_18.length()));
+					kqAr.add(kq_19.substring(kq_19.length() - 2, kq_19.length()));
+					kqAr.add(kq_20.substring(kq_20.length() - 2, kq_20.length()));
+					kqAr.add(kq_21.substring(kq_21.length() - 2, kq_21.length()));
+					kqAr.add(kq_22.substring(kq_22.length() - 2, kq_22.length()));
+					kqAr.add(kq_23.substring(kq_23.length() - 2, kq_23.length()));
+					kqAr.add(kq_24.substring(kq_24.length() - 2, kq_24.length()));
+					kqAr.add(kq_25.substring(kq_25.length() - 2, kq_25.length()));
+					kqAr.add(kq_26.substring(kq_26.length() - 2, kq_26.length()));
 
-				Elements ketquaClass = doc.getElementsByClass("ketqua");
-
-				for (Element element : ketquaClass) {
-					String kq_0 = element.getElementsByClass("kq_0").html();
-					String kq_1 = element.getElementsByClass("kq_1").html();
-					String kq_2 = element.getElementsByClass("kq_2").html();
-					String kq_3 = element.getElementsByClass("kq_3").html();
-					String kq_4 = element.getElementsByClass("kq_4").html();
-					String kq_5 = element.getElementsByClass("kq_5").html();
-					String kq_6 = element.getElementsByClass("kq_6").html();
-					String kq_7 = element.getElementsByClass("kq_7").html();
-					String kq_8 = element.getElementsByClass("kq_8").html();
-					String kq_9 = element.getElementsByClass("kq_9").html();
-					String kq_10 = element.getElementsByClass("kq_10").html();
-					String kq_11 = element.getElementsByClass("kq_11").html();
-					String kq_12 = element.getElementsByClass("kq_12").html();
-					String kq_13 = element.getElementsByClass("kq_13").html();
-					String kq_14 = element.getElementsByClass("kq_14").html();
-					String kq_15 = element.getElementsByClass("kq_15").html();
-					String kq_16 = element.getElementsByClass("kq_16").html();
-					String kq_17 = element.getElementsByClass("kq_17").html();
-					String kq_18 = element.getElementsByClass("kq_18").html();
-					String kq_19 = element.getElementsByClass("kq_19").html();
-					String kq_20 = element.getElementsByClass("kq_20").html();
-					String kq_21 = element.getElementsByClass("kq_21").html();
-					String kq_22 = element.getElementsByClass("kq_22").html();
-					String kq_23 = element.getElementsByClass("kq_23").html();
-					String kq_24 = element.getElementsByClass("kq_24").html();
-					String kq_25 = element.getElementsByClass("kq_25").html();
-					String kq_26 = element.getElementsByClass("kq_26").html();
-
+					kq.setKqAr(kqAr.toString());
 					kq.setKq0(kq_0);
 					kq.setKq1(kq_1);
 					kq.setKq2(kq_2);
@@ -250,7 +289,6 @@ public class RbkServicesImpl implements RbkServices{
 					kq.setKq24(kq_24);
 					kq.setKq25(kq_25);
 					kq.setKq26(kq_26);
-				}
 			}
 
 		} catch (Exception e) {
@@ -291,7 +329,6 @@ public class RbkServicesImpl implements RbkServices{
 		return listCaudep;
 	}
 	
-	
 	public List<String> caudepArrSW(String inputUrl){
 		List<String> listCaudep = new ArrayList<>();
 		try {
@@ -307,6 +344,33 @@ public class RbkServicesImpl implements RbkServices{
 							listCaudep.add(col1);
 						}
 					}
+				}
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return listCaudep;
+	}
+	
+	public List<String> caudep3ngay(String inputUrl){
+		int count = 0;
+		List<String> listCaudep = new ArrayList<>();
+		try {
+			if (!StringUtils.isEmpty(inputUrl)) {
+				Document doc = Jsoup.connect(inputUrl).get();
+				Elements ketquaClass = doc.getElementsByClass("tbl1");
+				for (Element element : ketquaClass) {
+					Elements sodep = element.getElementsByTag("tr");
+					for (Element el : sodep) {
+						count++;
+						String col1 = el.getElementsByClass("col1").html();
+//						Integer col2 = Integer.parseInt(el.getElementsByClass("col2").html().substring(0, 1));
+						listCaudep.add(col1);
+						if(count > 2){
+							return listCaudep;
+						}
+					}
+					
 				}
 			}
 		} catch (Exception e) {
