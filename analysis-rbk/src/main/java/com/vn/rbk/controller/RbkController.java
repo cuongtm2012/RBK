@@ -12,9 +12,12 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vn.rbk.AppConfig;
+import com.vn.rbk.services.base.BatchServices;
 import com.vn.rbk.services.base.RbkServices;
 import com.vn.rbk.util.GmailMsg;
 
@@ -25,6 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 public class RbkController {
 	@Autowired
 	private RbkServices rbkServices;
+	
+	@Autowired
+	private BatchServices batchServices;
 
 	@Autowired
 	private AppConfig myConfig;
@@ -68,6 +74,12 @@ public class RbkController {
 		return date;
 	}
 
+	@PutMapping(path = "/analysis")
+	public void updateBatch(){
+		batchServices.update(newDateYYYYMMDD());
+	}
+	
+	
 	private String convertDateDDMMYYYY(String date) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat convert = new SimpleDateFormat("dd/MM/yyyy");
@@ -88,6 +100,13 @@ public class RbkController {
 		} catch (ParseException e) {
 			log.error(e.getMessage());
 		}
+		return dateFormat.format(myDate);
+	}
+	
+
+	private String newDateYYYYMMDD() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date myDate = new Date();
 		return dateFormat.format(myDate);
 	}
 

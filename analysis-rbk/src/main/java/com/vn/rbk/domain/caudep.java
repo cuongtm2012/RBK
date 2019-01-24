@@ -8,4 +8,5 @@ import lombok.Data;
 public class caudep {
 	List<String> listCaudep;
 	String ngaychot;
+	String caudepStr;
 }

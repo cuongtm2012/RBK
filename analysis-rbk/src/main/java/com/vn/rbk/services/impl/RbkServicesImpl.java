@@ -364,7 +364,6 @@ public class RbkServicesImpl implements RbkServices{
 					for (Element el : sodep) {
 						count++;
 						String col1 = el.getElementsByClass("col1").html();
-//						Integer col2 = Integer.parseInt(el.getElementsByClass("col2").html().substring(0, 1));
 						listCaudep.add(col1);
 						if(count > 2){
 							return listCaudep;
