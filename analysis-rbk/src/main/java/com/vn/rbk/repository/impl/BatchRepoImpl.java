@@ -41,7 +41,7 @@ public class BatchRepoImpl implements BatchRepo {
 			caudep cd = new caudep();
 			DBObject dbObject = (DBObject) cursor.next();
 			cd.setNgaychot(dbObject.get("ngaychot").toString());
-			cd.setCaudepStr(dbObject.get("listcaudep").toString());
+			cd.setListCaudep(dbObject.get("listcaudep").toString());
 			listCaudep.add(cd);
 		}
 		return listCaudep;
@@ -55,7 +55,7 @@ public class BatchRepoImpl implements BatchRepo {
 			caudep cd = new caudep();
 			DBObject dbObject = (DBObject) cursor.next();
 			cd.setNgaychot(dbObject.get("ngaychot").toString());
-			cd.setCaudepStr(dbObject.get("listcaudep").toString());
+			cd.setListCaudep(dbObject.get("listcaudep").toString());
 			caudep3ngayList.add(cd);
 		}
 		return caudep3ngayList;
@@ -69,28 +69,33 @@ public class BatchRepoImpl implements BatchRepo {
 			caudep cd = new caudep();
 			DBObject dbObject = (DBObject) cursor.next();
 			cd.setNgaychot(dbObject.get("ngaychot").toString());
-			cd.setCaudepStr(dbObject.get("listcaudep").toString());
+			cd.setListCaudep(dbObject.get("listcaudep").toString());
 			caudepswList.add(cd);
 		}
 		return caudepswList;
 	}
 
 	@Override
-	public void updateCaudep(caudep str) {
-		// TODO Auto-generated method stub
-		
+	public void updateCaudep(caudep cd) {
+		BasicDBObject newDocument = new BasicDBObject();
+		newDocument.put("listcaudep", cd.getListCaudep());
+		BasicDBObject searchQuery = new BasicDBObject().append("ngaychot", cd.getNgaychot());
+		mongo.caudep().update(searchQuery, newDocument);
 	}
 
 	@Override
-	public void updateCaudep3Ngay(caudep str) {
-		// TODO Auto-generated method stub
-		
+	public void updateCaudep3Ngay(caudep cd) {
+		BasicDBObject newDocument = new BasicDBObject();
+		newDocument.put("listcaudep", cd.getListCaudep());
+		BasicDBObject searchQuery = new BasicDBObject().append("ngaychot", cd.getNgaychot());
+		mongo.caudep3ngay().update(searchQuery, newDocument);
 	}
 
 	@Override
-	public void updateCaudepSW(caudep str) {
-		// TODO Auto-generated method stub
-		
+	public void updateCaudepSW(caudep cd) {
+		BasicDBObject newDocument = new BasicDBObject();
+		newDocument.put("listcaudep", cd.getListCaudep());
+		BasicDBObject searchQuery = new BasicDBObject().append("ngaychot", cd.getNgaychot());
+		mongo.caudep3ngay().update(searchQuery, newDocument);	
 	}
-
 }

@@ -1,5 +1,5 @@
 server:
-    port: 8081
+    port: 8082
 rbk:
   url : https://rongbachkim.com/ketqua.php?getkq&ngay=%s&days=1&wday=0
   chotkq : https://rongbachkim.com/chot.php?getlist&ngay=%s&lastid=0&lastupdate=0

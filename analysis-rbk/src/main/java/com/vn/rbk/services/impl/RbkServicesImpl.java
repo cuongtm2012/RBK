@@ -50,7 +50,7 @@ public class RbkServicesImpl implements RbkServices{
 	public void alsTrend(String inputURL, String date){
 		List<String> trending = trendArr(inputURL);
 		trend newTrend = new trend();
-		newTrend.setLotto(trending);
+		newTrend.setLotto(trending.toString());
 		newTrend.setNgaychot(date);
 		rbkRepo.dltTrend(date);
 		rbkRepo.insertTrend(newTrend);
@@ -61,7 +61,7 @@ public class RbkServicesImpl implements RbkServices{
 		List<String> listCaudep = caudepArr(inputURL);
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
-		cd.setListCaudep(listCaudep);
+		cd.setListCaudep(listCaudep.toString());
 		if(!rbkRepo.isExistCauDep(date)){
 			rbkRepo.insertCauDep(cd);
 		}
@@ -72,7 +72,7 @@ public class RbkServicesImpl implements RbkServices{
 		List<String> listCaudepSW = caudepArrSW(inputURL);
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
-		cd.setListCaudep(listCaudepSW);
+		cd.setListCaudep(listCaudepSW.toString());
 		if(!rbkRepo.isExistCauDepSW(date)){
 			rbkRepo.insertCauDepSW(cd);
 		}
@@ -84,7 +84,7 @@ public class RbkServicesImpl implements RbkServices{
 		List<String> listCau3Ngay = caudep3ngay(inputURL);
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
-		cd.setListCaudep(listCau3Ngay);
+		cd.setListCaudep(listCau3Ngay.toString());
 		if(!rbkRepo.isExistCauDep3Ngay(date)){
 			rbkRepo.insertCauDep3Ngay(cd);
 		}
