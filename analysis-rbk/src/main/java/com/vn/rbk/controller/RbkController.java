@@ -12,14 +12,12 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vn.rbk.AppConfig;
 import com.vn.rbk.services.base.BatchServices;
 import com.vn.rbk.services.base.RbkServices;
-import com.vn.rbk.util.GmailMsg;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -68,7 +66,7 @@ public class RbkController {
 		caudepURL = String.format(cau3ngay, todayDateStr);
 		rbkServices.alsCau3Ngay(caudepURL, todayDateStr);
 		
-		GmailMsg.process(date, "");
+		//GmailMsg.process(date, "");
 		
 		log.info("Finish!!!");
 		return date;

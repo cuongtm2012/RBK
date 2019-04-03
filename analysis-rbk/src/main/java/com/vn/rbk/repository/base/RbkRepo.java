@@ -2,6 +2,7 @@ package com.vn.rbk.repository.base;
 
 import java.util.ArrayList;
 
+import com.mongodb.DBCollection;
 import com.vn.rbk.domain.caudep;
 import com.vn.rbk.domain.chotKQ;
 import com.vn.rbk.domain.ketqua;
@@ -25,7 +26,7 @@ public interface RbkRepo {
 	
 	void dltTrend(String date);
 
-	void dltChotKQ(String email, String date);
+	void dltChotKQ(DBCollection chotKQCl, String email, String date);
 
 	boolean isExistCauDepSW(String date);
 

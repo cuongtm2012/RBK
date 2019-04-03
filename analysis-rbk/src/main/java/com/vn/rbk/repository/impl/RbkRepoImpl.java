@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.vn.rbk.domain.caudep;
 import com.vn.rbk.domain.chotKQ;
@@ -23,8 +24,9 @@ public class RbkRepoImpl implements RbkRepo {
 	@Override
 	public void insertChotKQ(ArrayList<chotKQ> chotKQlist, String date) {
 		try {
+			DBCollection chotkqCl = mongo.chotKQ();
 			for (chotKQ chotKQ2 : chotKQlist) {
-					dltChotKQ(chotKQ2.getEmail(), date);
+					dltChotKQ(chotkqCl, chotKQ2.getEmail(), date);
 					BasicDBObject document = new BasicDBObject();
 					document.put("ngaychot", date);
 					document.put("lo", chotKQ2.getLo());
@@ -42,7 +44,7 @@ public class RbkRepoImpl implements RbkRepo {
 					document.put("ratio_lo", chotKQ2.getRatio_lo());
 					document.put("ratio_lobt", chotKQ2.getRatio_lobt());
 					document.put("ratio_debt", chotKQ2.getDebt());
-					mongo.chotKQ().insert(document);
+					chotkqCl.insert(document);
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -159,12 +161,12 @@ public class RbkRepoImpl implements RbkRepo {
 	}
 
 	@Override
-	public void dltChotKQ(String email, String date) {
+	public void dltChotKQ(DBCollection chotKQcl, String email, String date) {
 		try {
 			BasicDBObject document = new BasicDBObject();
 			document.put("ngaychot", date);
 			document.put("email", email);
-			mongo.chotKQ().remove(document);
+			chotKQcl.remove(document);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}

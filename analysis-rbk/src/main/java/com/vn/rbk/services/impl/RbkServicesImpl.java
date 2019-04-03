@@ -49,6 +49,7 @@ public class RbkServicesImpl implements RbkServices{
 	@Override
 	public void alsTrend(String inputURL, String date){
 		List<String> trending = trendArr(inputURL);
+		log.debug(trending.toString());
 		trend newTrend = new trend();
 		newTrend.setLotto(trending.toString());
 		newTrend.setNgaychot(date);
@@ -59,6 +60,7 @@ public class RbkServicesImpl implements RbkServices{
 	@Override
 	public void alsCaudep(String inputURL, String date){
 		List<String> listCaudep = caudepArr(inputURL);
+		log.debug(listCaudep.toString());
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
 		cd.setListCaudep(listCaudep.toString());
@@ -70,6 +72,7 @@ public class RbkServicesImpl implements RbkServices{
 	@Override
 	public void alsCaudepSW(String inputURL, String date){
 		List<String> listCaudepSW = caudepArrSW(inputURL);
+		log.debug(listCaudepSW.toString());
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
 		cd.setListCaudep(listCaudepSW.toString());
@@ -82,6 +85,7 @@ public class RbkServicesImpl implements RbkServices{
 	@Override
 	public void alsCau3Ngay(String inputURL, String date) {
 		List<String> listCau3Ngay = caudep3ngay(inputURL);
+		log.debug(listCau3Ngay.toString());
 		caudep cd = new caudep();
 		cd.setNgaychot(date);
 		cd.setListCaudep(listCau3Ngay.toString());
