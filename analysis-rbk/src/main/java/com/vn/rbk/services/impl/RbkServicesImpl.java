@@ -1,6 +1,7 @@
 package com.vn.rbk.services.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -264,6 +265,7 @@ public class RbkServicesImpl implements RbkServices{
 					kqAr.add(kq_24.substring(kq_24.length() - 2, kq_24.length()));
 					kqAr.add(kq_25.substring(kq_25.length() - 2, kq_25.length()));
 					kqAr.add(kq_26.substring(kq_26.length() - 2, kq_26.length()));
+					Collections.sort(kqAr);
 
 					kq.setKqAr(kqAr.toString());
 					kq.setKq0(kq_0);
