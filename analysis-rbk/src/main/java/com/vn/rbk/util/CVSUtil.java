@@ -1,5 +1,7 @@
 package com.vn.rbk.util;
 
+import com.vn.rbk.domain.chotKQ;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -7,38 +9,35 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.vn.rbk.domain.chotKQ;
-
 public class CVSUtil {
-	
+
     private static final char DEFAULT_SEPARATOR = ',';
 
-	static void writeCSV(){
-		try {
-	        String csvFile = "/Users/mkyong/csv/developer.csv";
-	        FileWriter writer = new FileWriter(csvFile);
+    static void writeCSV() {
+        try {
+            String csvFile = "/Users/mkyong/csv/developer.csv";
+            FileWriter writer = new FileWriter(csvFile);
 
-	        ArrayList<chotKQ> chotKQList = new ArrayList<chotKQ>();
+            ArrayList<chotKQ> chotKQList = new ArrayList<chotKQ>();
 
-	        //for header
-	        writeLine(writer, Arrays.asList("Name", "Salary", "Age"));
-			
-	        for (chotKQ d : chotKQList) {
+            //for header
+            writeLine(writer, Arrays.asList("Name", "Salary", "Age"));
 
-	            List<String> list = new ArrayList<String>();
+            for (chotKQ d : chotKQList) {
 
-	            writeLine(writer, list);
-	        }
+                List<String> list = new ArrayList<String>();
 
-	        writer.flush();
-	        writer.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-	
-	
-	
+                writeLine(writer, list);
+            }
+
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
     public static void writeLine(Writer w, List<String> values) throws IOException {
         writeLine(w, values, DEFAULT_SEPARATOR, ' ');
     }

@@ -10,15 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties
 @ConfigurationProperties
 @Data
-public class AppConfig {
-    @Value("${rbk.url}")
-    private String url;
-    @Value("${rbk.chotkq}")
-    private String chotkq;
-    @Value("${rbk.trendURL}")
-    private String trendURL;
-    @Value("${rbk.caudepURL}")
-    private String caudepURL;
-    @Value("${rbk.cau3ngay}")
-    private String cau3ngay;
+public class MongoConfig {
+    @Value("${mongo.server}")
+    private String server;
+    @Value("${mongo.port}")
+    private int port;
 }

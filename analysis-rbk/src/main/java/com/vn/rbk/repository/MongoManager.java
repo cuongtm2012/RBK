@@ -3,37 +3,45 @@ package com.vn.rbk.repository;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import com.vn.rbk.MongoConfig;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MongoManager {
-	DB db = null;
 
-	public DB initDB() {
-		MongoClient mongo = null;
-		mongo = new MongoClient("localhost", 27017);
-		return db = mongo.getDB("testdb");
-	}
+    public DB initDB(MongoConfig mongoConfig) {
+        DB db = null;
+        try {
+            MongoClient mongo = null;
+            mongo = new MongoClient(mongoConfig.getServer(), mongoConfig.getPort());
+            return db = mongo.getDB("kqxs");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return db;
+    }
 
-	public DBCollection chotKQ() {
-		return initDB().getCollection("chotkq");
-	}
+    public DBCollection chotKQ(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("chotkq");
+    }
 
-	public DBCollection ketqua() {
-		return initDB().getCollection("ketqua");
-	}
+    public DBCollection ketqua(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("ketqua");
+    }
 
-	public DBCollection caudep() {
-		return initDB().getCollection("caudep");
-	}
+    public DBCollection caudep(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("caudep");
+    }
 
-	public DBCollection caudepsw() {
-		return initDB().getCollection("caudepsw");
-	}
-	
-	public DBCollection caudep3ngay() {
-		return initDB().getCollection("caudep3ngay");
-	}
-	
-	public DBCollection trend() {
-		return initDB().getCollection("trend");
-	}
+    public DBCollection caudepsw(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("caudepsw");
+    }
+
+    public DBCollection caudep3ngay(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("caudep3ngay");
+    }
+
+    public DBCollection trend(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("trend");
+    }
 }

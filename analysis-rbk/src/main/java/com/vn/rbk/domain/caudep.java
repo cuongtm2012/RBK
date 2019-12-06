@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class caudep {
-	String listCaudep;
-	String ngaychot;
+    String listCaudep;
+    String ngaychot;
 }

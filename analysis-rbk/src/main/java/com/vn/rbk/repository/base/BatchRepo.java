@@ -1,22 +1,22 @@
 package com.vn.rbk.repository.base;
 
-import java.util.List;
-
 import com.vn.rbk.domain.caudep;
+
+import java.util.List;
 
 public interface BatchRepo {
 
-	String getKQbyDate(String date);
+    String getKQbyDate(String date);
 
-	List<caudep> getCaudep();
+    List<caudep> getCaudep();
 
-	List<caudep> getCaudep3Ngay();
+    List<caudep> getCaudep3Ngay();
 
-	List<caudep> getCaudepSW();
+    List<caudep> getCaudepSW();
 
-	void updateCaudep(caudep str);
+    void updateCaudep(caudep str);
 
-	void updateCaudep3Ngay(caudep str);
+    void updateCaudep3Ngay(caudep str);
 
-	void updateCaudepSW(caudep str);
+    void updateCaudepSW(caudep str);
 }

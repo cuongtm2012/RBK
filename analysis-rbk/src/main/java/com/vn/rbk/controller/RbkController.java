@@ -5,107 +5,99 @@
  */
 package com.vn.rbk.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.vn.rbk.AppConfig;
 import com.vn.rbk.services.base.BatchServices;
 import com.vn.rbk.services.base.RbkServices;
-
+import com.vn.rbk.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Slf4j
 @RestController
 public class RbkController {
-	@Autowired
-	private RbkServices rbkServices;
-	
-	@Autowired
-	private BatchServices batchServices;
+    @Autowired
+    private RbkServices rbkServices;
 
-	@Autowired
-	private AppConfig myConfig;
+    @Autowired
+    private BatchServices batchServices;
 
-	@GetMapping(path = "/analysis/{date}")
-	public String get(@PathVariable("date") String date) {
+    @Autowired
+    private AppConfig myConfig;
 
-		String URL = myConfig.getUrl();
-		String chotkq = myConfig.getChotkq();
-		String trendURL = myConfig.getTrendURL();
-		String caudepURL = myConfig.getCaudepURL();
-		String caudepURLSW = myConfig.getCaudepURL();
-		String cau3ngay = myConfig.getCau3ngay();
+    @Scheduled(cron = "0 15-31 18 * * *")
+    public void getKQXS() {
+        String URL = myConfig.getUrl();
+        // return ket qua object
+        String todayDDMMYYYY = DateUtil.newDateYYYYMMDD();
+        log.info(todayDDMMYYYY);
+        URL = String.format(URL, todayDDMMYYYY);
+        rbkServices.alsKetquasx(URL, todayDDMMYYYY);
 
-		String todayDateStr = convertDateYYYYMMDD(date);
-		log.info(todayDateStr);
-		// get data from rongbachkim
-		// get list chot ket qua
-		chotkq = String.format(chotkq, todayDateStr);
-		rbkServices.alsChotKQ(chotkq, todayDateStr);
-		// return ket qua object
-		String todayDDMMYYYY = convertDateDDMMYYYY(date);
-		URL = String.format(URL, todayDDMMYYYY);
-		rbkServices.alsKetquasx(URL, todayDateStr);
-		// return trend array
-		trendURL = String.format(trendURL, todayDateStr);
-		rbkServices.alsTrend(trendURL, todayDateStr);
-		// return cau dep array
-		caudepURL = String.format(caudepURL, todayDateStr, 0);
-		rbkServices.alsCaudep(caudepURL, todayDateStr);
-		// return cau dep SW array
-		caudepURLSW = String.format(caudepURLSW, todayDateStr, 1);
-		rbkServices.alsCaudepSW(caudepURLSW, todayDateStr);
-		// return cau 3 ngay
-		caudepURL = String.format(cau3ngay, todayDateStr);
-		rbkServices.alsCau3Ngay(caudepURL, todayDateStr);
-		
-		//GmailMsg.process(date, "");
-		
-		log.info("Finish!!!");
-		return date;
-	}
+        log.info("Get KQXS Finish!!!");
+    }
 
-	@PutMapping(path = "/analysis")
-	public void updateBatch(){
-		batchServices.update(newDateYYYYMMDD());
-	}
-	
-	
-	private String convertDateDDMMYYYY(String date) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat convert = new SimpleDateFormat("dd/MM/yyyy");
-		Date myDate = new Date();
-		try {
-			myDate = dateFormat.parse(date);
-		} catch (ParseException e) {
-			log.error(e.getMessage());
-		}
-		return convert.format(myDate);
-	}
+    @Scheduled(cron = "0 25/55 * * * ? ")
+    public void chotkq() {
+        String chotkq = myConfig.getChotkq();
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.format(date);
+        System.out.println(dateFormat.format(date));
+        try {
+            if (dateFormat.parse(dateFormat.format(date)).after(dateFormat.parse("19:00"))) {
+                LocalDateTime.from(date.toInstant()).plusDays(1);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String todayDateStr = DateUtil.dateFormatYYYYMMDD(date);
+        // get data from rongbachkim
+        // get list chot ket qua
+        chotkq = String.format(chotkq, todayDateStr);
+        rbkServices.alsChotKQ(chotkq, todayDateStr);
+    }
 
-	private String convertDateYYYYMMDD(String date) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date myDate = new Date();
-		try {
-			myDate = dateFormat.parse(date);
-		} catch (ParseException e) {
-			log.error(e.getMessage());
-		}
-		return dateFormat.format(myDate);
-	}
-	
+    @Scheduled(cron = "0 20/50 * * * ? ")
+    public void trending() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.format(date);
+        System.out.println(dateFormat.format(date));
+        try {
+            if (dateFormat.parse(dateFormat.format(date)).after(dateFormat.parse("19:00"))) {
+                LocalDateTime.from(date.toInstant()).plusDays(1);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String trendURL = myConfig.getTrendURL();
+        String todayDateStr = DateUtil.dateFormatYYYYMMDD(date);
+        // return trend array
+        trendURL = String.format(trendURL, todayDateStr);
+        rbkServices.alsTrend(trendURL, todayDateStr);
+    }
 
-	private String newDateYYYYMMDD() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date myDate = new Date();
-		return dateFormat.format(myDate);
-	}
-
+    public void analysis() {
+        Date date = new Date();
+        String caudepURL = myConfig.getCaudepURL();
+        String caudepURLSW = myConfig.getCaudepURL();
+        String cau3ngay = myConfig.getCau3ngay();
+        String todayDateStr = DateUtil.dateFormatYYYYMMDD(date);
+        // return cau dep array
+        caudepURL = String.format(caudepURL, todayDateStr, 0);
+        rbkServices.alsCaudep(caudepURL, todayDateStr);
+        // return cau dep SW array
+        caudepURLSW = String.format(caudepURLSW, todayDateStr, 1);
+        rbkServices.alsCaudepSW(caudepURLSW, todayDateStr);
+        // return cau 3 ngay
+        caudepURL = String.format(cau3ngay, todayDateStr);
+        rbkServices.alsCau3Ngay(caudepURL, todayDateStr);
+    }
 }

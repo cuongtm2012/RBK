@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class trend {
-	String lotto;
-	String ngaychot;
+    String lotto;
+    String ngaychot;
 }
