@@ -42,10 +42,7 @@ public class RbkServicesImpl implements RbkServices {
     public void alsKetquasx(String inputURL, String date) {
         ketqua kq = ketquasx(inputURL);
         kq.setNgaychot(date);
-        boolean isExistKQ = rbkRepo.isExistKetQua(date);
-        if (!isExistKQ) {
-            rbkRepo.insertKetQua(kq);
-        }
+        rbkRepo.insertKetQua(kq);
     }
 
     @Override
