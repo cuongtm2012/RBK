@@ -2,6 +2,7 @@ package com.vn.rbk.services.impl;
 
 import com.vn.rbk.domain.chotKQ;
 import com.vn.rbk.domain.ketqua;
+import com.vn.rbk.domain.trend;
 import com.vn.rbk.repository.base.KQXSRepo;
 import com.vn.rbk.services.base.KQXSServices;
 import lombok.extern.slf4j.Slf4j;
@@ -27,5 +28,11 @@ public class KQXSServicesImpl implements KQXSServices {
     public List<ketqua> getketqua(String ngaychot) {
         List<ketqua> ketquaList = kqxsRepo.getKetQua(ngaychot);
         return ketquaList;
+    }
+
+    @Override
+    public trend getTrending(String ngaychot) {
+        trend trend = kqxsRepo.getTrending(ngaychot);
+        return trend;
     }
 }

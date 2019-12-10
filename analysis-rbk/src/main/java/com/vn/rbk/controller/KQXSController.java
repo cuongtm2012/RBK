@@ -8,6 +8,7 @@ package com.vn.rbk.controller;
 import com.vn.rbk.AppConfig;
 import com.vn.rbk.domain.chotKQ;
 import com.vn.rbk.domain.ketqua;
+import com.vn.rbk.domain.trend;
 import com.vn.rbk.services.base.BatchServices;
 import com.vn.rbk.services.base.KQXSServices;
 import lombok.extern.slf4j.Slf4j;
@@ -50,9 +51,9 @@ public class KQXSController {
             @Valid @NotBlank @RequestParam(value = "limit", defaultValue = "0") Integer limit
     ) {
         logger.info("--------- START ---------- ::" + System.currentTimeMillis());
-        List<chotKQ> rv001DTOS = kqxsServices.getChotKQ(ngaychot, email, name, skip, limit);
+        List<chotKQ> chotKQList = kqxsServices.getChotKQ(ngaychot, email, name, skip, limit);
         logger.info("--------- END ---------- ::" + System.currentTimeMillis());
-        return new ResponseEntity<>(rv001DTOS, HttpStatus.OK);
+        return new ResponseEntity<>(chotKQList, HttpStatus.OK);
     }
 
     @CrossOrigin
@@ -61,9 +62,20 @@ public class KQXSController {
             @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot
     ) {
         logger.info("--------- START ---------- ::" + System.currentTimeMillis());
-        List<ketqua> rv001DTOS = kqxsServices.getketqua(ngaychot);
+        List<ketqua> ketquaList = kqxsServices.getketqua(ngaychot);
         logger.info("--------- END ---------- ::" + System.currentTimeMillis());
-        return new ResponseEntity<>(rv001DTOS, HttpStatus.OK);
+        return new ResponseEntity<>(ketquaList, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/trending")
+    public ResponseEntity<?> trending(
+            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot
+    ) {
+        logger.info("--------- START ---------- ::" + System.currentTimeMillis());
+        trend trend = kqxsServices.getTrending(ngaychot);
+        logger.info("--------- END ---------- ::" + System.currentTimeMillis());
+        return new ResponseEntity<>(trend, HttpStatus.OK);
     }
 
 }

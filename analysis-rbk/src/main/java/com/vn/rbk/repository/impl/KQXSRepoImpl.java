@@ -7,6 +7,7 @@ import com.mongodb.DBObject;
 import com.vn.rbk.MongoConfig;
 import com.vn.rbk.domain.chotKQ;
 import com.vn.rbk.domain.ketqua;
+import com.vn.rbk.domain.trend;
 import com.vn.rbk.repository.MongoManager;
 import com.vn.rbk.repository.base.KQXSRepo;
 import com.vn.rbk.util.Validator;
@@ -141,5 +142,25 @@ public class KQXSRepoImpl implements KQXSRepo {
             e.printStackTrace();
         }
         return ketquaList;
+    }
+
+    @Override
+    public trend getTrending(String ngaychot) {
+        trend trend = new trend();
+        try {
+            BasicDBObject document = new BasicDBObject();
+            if (Validator.validateString(ngaychot)) {
+                document.put("ngaychot", ngaychot);
+            }
+
+            DBCursor cursor = mongo.trend(mongoConfig).find(document);
+            while (cursor.hasNext()) {
+                DBObject dbobject = cursor.next();
+                trend.setLotto(dbobject.get("lotto").toString());
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return trend;
     }
 }
