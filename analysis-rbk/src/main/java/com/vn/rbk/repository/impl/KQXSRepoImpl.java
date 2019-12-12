@@ -102,8 +102,14 @@ public class KQXSRepoImpl implements KQXSRepo {
 
         try {
             BasicDBObject document = new BasicDBObject();
-            document.put("ngaychot", ngaychot);
-            DBCursor cursor = mongo.ketqua(mongoConfig).find(document);
+            DBCursor cursor;
+            if(Validator.validateString(ngaychot)){
+                document.put("ngaychot", ngaychot);
+                cursor = mongo.ketqua(mongoConfig).find(document);
+            } else {
+                cursor = mongo.ketqua(mongoConfig).find();
+            }
+
             while (cursor.hasNext()) {
                 ketqua kq = new ketqua();
                 DBObject dbobject = cursor.next();

@@ -4,8 +4,7 @@ rbk:
   url: https://rongbachkim.com/ketqua.php?getkq&ngay=%s&days=1&wday=0
   chotkq: https://rongbachkim.com/chot.php?getlist&ngay=%s&lastid=0&lastupdate=0
   trendURL: https://rongbachkim.com/trend.php?list&alone&day=%s&trendlimit=100
-  caudepURL: https://rongbachkim.com/soicau.html?submit=1&setmode=full&exactlimit=0&limit=5&ngay=%s&nhay=1&lon=%s
-  cau3ngay: https://rongbachkim.com/soicau.html?submit=1&setmode=full&exactlimit=0&limit=3&ngay=%s&nhay=1&lon=0
+  caudepURL: https://rongbachkim.com/soicau.html?submit=1&setmode=full&exactlimit=0&limit=%s&ngay=%s&nhay=%s&lon=%s
 mongo:
   server: 127.0.0.1
   port: 27017

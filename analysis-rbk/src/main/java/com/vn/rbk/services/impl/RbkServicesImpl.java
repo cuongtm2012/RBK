@@ -6,8 +6,6 @@ import com.vn.rbk.domain.ketqua;
 import com.vn.rbk.domain.trend;
 import com.vn.rbk.repository.base.RbkRepo;
 import com.vn.rbk.services.base.RbkServices;
-import com.vn.rbk.util.DateUtil;
-import com.vn.rbk.util.GmailMsg;
 import com.vn.rbk.util.Utility;
 import com.vn.rbk.util.Validator;
 import lombok.extern.slf4j.Slf4j;
@@ -57,54 +55,137 @@ public class RbkServicesImpl implements RbkServices {
     }
 
     @Override
-    public void alsCaudep(String inputURL, String date) {
+    public void alsCaudep(caudep cd, String inputURL, int limit, String date, int nhay, int lon) {
         List<String> listCaudep = caudepArr(inputURL);
-        log.debug(listCaudep.toString());
-        caudep cd = new caudep();
         cd.setNgaychot(date);
-        cd.setListCaudep(listCaudep.toString());
-        if (!rbkRepo.isExistCauDep(date)) {
+        if (limit == 1 && nhay == 1 & lon == 0) {
+            cd.setLimit1nhay1lon0(listCaudep.toString());
+        } else if (limit == 2 && nhay == 1 & lon == 0) {
+            cd.setLimit2nhay1lon0(listCaudep.toString());
+        } else if (limit == 3 && nhay == 1 & lon == 0) {
+            cd.setLimit3nhay1lon0(listCaudep.toString());
+        } else if (limit == 4 && nhay == 1 & lon == 0) {
+            cd.setLimit4nhay1lon0(listCaudep.toString());
+        } else if (limit == 5 && nhay == 1 & lon == 0) {
+            cd.setLimit5nhay1lon0(listCaudep.toString());
+        } else if (limit == 6 && nhay == 1 & lon == 0) {
+            cd.setLimit6nhay1lon0(listCaudep.toString());
+        } else if (limit == 7 && nhay == 1 & lon == 0) {
+            cd.setLimit7nhay1lon0(listCaudep.toString());
+        } else if (limit == 8 && nhay == 1 & lon == 0) {
+            cd.setLimit8nhay1lon0(listCaudep.toString());
+        } else if (limit == 9 && nhay == 1 & lon == 0) {
+            cd.setLimit9nhay1lon0(listCaudep.toString());
+        } else if (limit == 10 && nhay == 1 & lon == 0) {
+            cd.setLimit10nhay1lon0(listCaudep.toString());
+        } else if (limit == 11 && nhay == 1 & lon == 0) {
+            cd.setLimit11nhay1lon0(listCaudep.toString());
+        } else if (limit == 12 && nhay == 1 & lon == 0) {
+            cd.setLimit12nhay1lon0(listCaudep.toString());
+        } else if (limit == 13 && nhay == 1 & lon == 0) {
+            cd.setLimit13nhay1lon0(listCaudep.toString());
+        } else if (limit == 14 && nhay == 1 & lon == 0) {
+            cd.setLimit14nhay1lon0(listCaudep.toString());
+        } else if (limit == 15 && nhay == 1 & lon == 0) {
+            cd.setLimit15nhay1lon0(listCaudep.toString());
+        } else if (limit == 16 && nhay == 1 & lon == 0) {
+            cd.setLimit16nhay1lon0(listCaudep.toString());
+        } else if (limit == 17 && nhay == 1 & lon == 0) {
+            cd.setLimit17nhay1lon0(listCaudep.toString());
+        } else if (limit == 18 && nhay == 1 & lon == 0) {
+            cd.setLimit18nhay1lon0(listCaudep.toString());
+        } else if (limit == 19 && nhay == 1 & lon == 0) {
+            cd.setLimit19nhay1lon0(listCaudep.toString());
+        } else if (limit == 20 && nhay == 1 & lon == 0) {
+            cd.setLimit20nhay1lon0(listCaudep.toString());
+        } else if (limit == 1 && nhay == 2 & lon == 0) {
+            cd.setLimit1nhay2lon0(listCaudep.toString());
+        } else if (limit == 2 && nhay == 2 & lon == 0) {
+            cd.setLimit2nhay2lon0(listCaudep.toString());
+        } else if (limit == 3 && nhay == 2 & lon == 0) {
+            cd.setLimit3nhay2lon0(listCaudep.toString());
+        } else if (limit == 4 && nhay == 2 & lon == 0) {
+            cd.setLimit4nhay2lon0(listCaudep.toString());
+        } else if (limit == 5 && nhay == 2 & lon == 0) {
+            cd.setLimit5nhay2lon0(listCaudep.toString());
+        } else if (limit == 1 && nhay == 3 & lon == 0) {
+            cd.setLimit1nhay3lon0(listCaudep.toString());
+        } else if (limit == 2 && nhay == 3 & lon == 0) {
+            cd.setLimit2nhay3lon0(listCaudep.toString());
+        } else if (limit == 3 && nhay == 3 & lon == 0) {
+            cd.setLimit3nhay3lon0(listCaudep.toString());
+        } else if (limit == 4 && nhay == 3 & lon == 0) {
+            cd.setLimit4nhay3lon0(listCaudep.toString());
+        } else if (limit == 5 && nhay == 3 & lon == 0) {
+            cd.setLimit5nhay3lon0(listCaudep.toString());
+        } else if (limit == 1 && nhay == 1 & lon == 1) {
+            cd.setLimit1nhay1lon0(listCaudep.toString());
+        } else if (limit == 2 && nhay == 1 & lon == 1) {
+            cd.setLimit2nhay1lon0(listCaudep.toString());
+        } else if (limit == 3 && nhay == 1 & lon == 1) {
+            cd.setLimit3nhay1lon0(listCaudep.toString());
+        } else if (limit == 4 && nhay == 1 & lon == 1) {
+            cd.setLimit4nhay1lon0(listCaudep.toString());
+        } else if (limit == 5 && nhay == 1 & lon == 1) {
+            cd.setLimit5nhay1lon0(listCaudep.toString());
+        } else if (limit == 6 && nhay == 1 & lon == 1) {
+            cd.setLimit6nhay1lon0(listCaudep.toString());
+        } else if (limit == 7 && nhay == 1 & lon == 1) {
+            cd.setLimit7nhay1lon0(listCaudep.toString());
+        } else if (limit == 8 && nhay == 1 & lon == 1) {
+            cd.setLimit8nhay1lon0(listCaudep.toString());
+        } else if (limit == 9 && nhay == 1 & lon == 1) {
+            cd.setLimit9nhay1lon0(listCaudep.toString());
+        } else if (limit == 10 && nhay == 1 & lon == 1) {
+            cd.setLimit10nhay1lon0(listCaudep.toString());
+        } else if (limit == 11 && nhay == 1 & lon == 1) {
+            cd.setLimit11nhay1lon0(listCaudep.toString());
+        } else if (limit == 12 && nhay == 1 & lon == 1) {
+            cd.setLimit12nhay1lon0(listCaudep.toString());
+        } else if (limit == 13 && nhay == 1 & lon == 1) {
+            cd.setLimit13nhay1lon0(listCaudep.toString());
+        } else if (limit == 14 && nhay == 1 & lon == 1) {
+            cd.setLimit14nhay1lon0(listCaudep.toString());
+        } else if (limit == 15 && nhay == 1 & lon == 1) {
+            cd.setLimit15nhay1lon0(listCaudep.toString());
+        } else if (limit == 16 && nhay == 1 & lon == 1) {
+            cd.setLimit16nhay1lon0(listCaudep.toString());
+        } else if (limit == 17 && nhay == 1 & lon == 1) {
+            cd.setLimit17nhay1lon0(listCaudep.toString());
+        } else if (limit == 18 && nhay == 1 & lon == 1) {
+            cd.setLimit18nhay1lon1(listCaudep.toString());
+        } else if (limit == 19 && nhay == 1 & lon == 1) {
+            cd.setLimit19nhay1lon1(listCaudep.toString());
+        } else if (limit == 20 && nhay == 1 & lon == 1) {
+            cd.setLimit20nhay1lon1(listCaudep.toString());
+        } else if (limit == 1 && nhay == 2 & lon == 1) {
+            cd.setLimit1nhay2lon1(listCaudep.toString());
+        } else if (limit == 2 && nhay == 2 & lon == 1) {
+            cd.setLimit2nhay2lon1(listCaudep.toString());
+        } else if (limit == 3 && nhay == 2 & lon == 1) {
+            cd.setLimit3nhay2lon1(listCaudep.toString());
+        } else if (limit == 4 && nhay == 2 & lon == 1) {
+            cd.setLimit4nhay2lon1(listCaudep.toString());
+        } else if (limit == 5 && nhay == 2 & lon == 1) {
+            cd.setLimit5nhay2lon1(listCaudep.toString());
+        } else if (limit == 1 && nhay == 3 & lon == 1) {
+            cd.setLimit1nhay3lon1(listCaudep.toString());
+        } else if (limit == 2 && nhay == 3 & lon == 1) {
+            cd.setLimit2nhay3lon1(listCaudep.toString());
+        } else if (limit == 3 && nhay == 3 & lon == 1) {
+            cd.setLimit3nhay3lon1(listCaudep.toString());
+        } else if (limit == 4 && nhay == 3 & lon == 1) {
+            cd.setLimit4nhay3lon1(listCaudep.toString());
+        } else if (limit == 5 && nhay == 3 & lon == 1) {
+            cd.setLimit5nhay3lon1(listCaudep.toString());
+        }
+    }
+
+    @Override
+    public void impCaudep(caudep cd) {
+        if(!rbkRepo.isExistCauDep(cd.getNgaychot())){
             rbkRepo.insertCauDep(cd);
         }
-    }
-
-    @Override
-    public void alsCaudepSW(String inputURL, String date) {
-        List<String> listCaudepSW = caudepArrSW(inputURL);
-        log.debug(listCaudepSW.toString());
-        caudep cd = new caudep();
-        cd.setNgaychot(date);
-        cd.setListCaudep(listCaudepSW.toString());
-        if (!rbkRepo.isExistCauDepSW(date)) {
-            rbkRepo.insertCauDepSW(cd);
-        }
-    }
-
-    @Override
-    public void alsCau3Ngay(String inputURL, String date) {
-        List<String> listCau3Ngay = caudep3ngay(inputURL);
-        log.debug(listCau3Ngay.toString());
-        caudep cd = new caudep();
-        cd.setNgaychot(date);
-        cd.setListCaudep(listCau3Ngay.toString());
-        if (!rbkRepo.isExistCauDep3Ngay(date)) {
-            rbkRepo.insertCauDep3Ngay(cd);
-        }
-    }
-
-    @Override
-    public void pushEmail() {
-        String content = "";
-
-        List<caudep> listCaudep = rbkRepo.listCaudep3Ngay();
-        for (int i = 0; i < listCaudep.size(); i++) {
-            String ngaychot = listCaudep.get(i).getNgaychot();
-            String caudepStr = listCaudep.get(i).getListCaudep();
-
-            content = content + "</br>" + "<div><h4>" + ngaychot + "<h4/>" + caudepStr + "</div></br>";
-        }
-
-        GmailMsg.process(DateUtil.newDateYYYYMMDD(), content);
     }
 
     public ArrayList<chotKQ> parseChotKQ(String chotkq) {

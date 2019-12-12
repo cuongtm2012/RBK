@@ -44,7 +44,7 @@ public class BatchRepoImpl implements BatchRepo {
             caudep cd = new caudep();
             DBObject dbObject = (DBObject) cursor.next();
             cd.setNgaychot(dbObject.get("ngaychot").toString());
-            cd.setListCaudep(dbObject.get("listcaudep").toString());
+//            cd.setListCaudep(dbObject.get("listcaudep").toString());
             listCaudep.add(cd);
         }
         return listCaudep;
@@ -58,7 +58,7 @@ public class BatchRepoImpl implements BatchRepo {
             caudep cd = new caudep();
             DBObject dbObject = (DBObject) cursor.next();
             cd.setNgaychot(dbObject.get("ngaychot").toString());
-            cd.setListCaudep(dbObject.get("listcaudep").toString());
+//            cd.setListCaudep(dbObject.get("listcaudep").toString());
             caudep3ngayList.add(cd);
         }
         return caudep3ngayList;
@@ -72,7 +72,7 @@ public class BatchRepoImpl implements BatchRepo {
             caudep cd = new caudep();
             DBObject dbObject = (DBObject) cursor.next();
             cd.setNgaychot(dbObject.get("ngaychot").toString());
-            cd.setListCaudep(dbObject.get("listcaudep").toString());
+//            cd.setListCaudep(dbObject.get("listcaudep").toString());
             caudepswList.add(cd);
         }
         return caudepswList;
@@ -81,7 +81,7 @@ public class BatchRepoImpl implements BatchRepo {
     @Override
     public void updateCaudep(caudep cd) {
         BasicDBObject newDocument = new BasicDBObject();
-        newDocument.put("listcaudep", cd.getListCaudep());
+//        newDocument.put("listcaudep", cd.getListCaudep());
         BasicDBObject searchQuery = new BasicDBObject().append("ngaychot", cd.getNgaychot());
         mongo.caudep(mongoConfig).update(searchQuery, newDocument);
     }
@@ -89,7 +89,7 @@ public class BatchRepoImpl implements BatchRepo {
     @Override
     public void updateCaudep3Ngay(caudep cd) {
         BasicDBObject newDocument = new BasicDBObject();
-        newDocument.put("listcaudep", cd.getListCaudep());
+//        newDocument.put("listcaudep", cd.getListCaudep());
         BasicDBObject searchQuery = new BasicDBObject().append("ngaychot", cd.getNgaychot());
         mongo.caudep3ngay(mongoConfig).update(searchQuery, newDocument);
     }
@@ -97,7 +97,7 @@ public class BatchRepoImpl implements BatchRepo {
     @Override
     public void updateCaudepSW(caudep cd) {
         BasicDBObject newDocument = new BasicDBObject();
-        newDocument.put("listcaudep", cd.getListCaudep());
+//        newDocument.put("listcaudep", cd.getListCaudep());
         BasicDBObject searchQuery = new BasicDBObject().append("ngaychot", cd.getNgaychot());
         mongo.caudep3ngay(mongoConfig).update(searchQuery, newDocument);
     }

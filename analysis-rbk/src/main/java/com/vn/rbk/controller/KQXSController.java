@@ -77,5 +77,4 @@ public class KQXSController {
         logger.info("--------- END ---------- ::" + System.currentTimeMillis());
         return new ResponseEntity<>(trend, HttpStatus.OK);
     }
-
 }

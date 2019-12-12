@@ -84,20 +84,4 @@ public class RbkController {
         rbkServices.alsTrend(trendURL, todayDateStr);
     }
 
-    public void analysis() {
-        Date date = new Date();
-        String caudepURL = myConfig.getCaudepURL();
-        String caudepURLSW = myConfig.getCaudepURL();
-        String cau3ngay = myConfig.getCau3ngay();
-        String todayDateStr = DateUtil.dateFormatYYYYMMDD(date);
-        // return cau dep array
-        caudepURL = String.format(caudepURL, todayDateStr, 0);
-        rbkServices.alsCaudep(caudepURL, todayDateStr);
-        // return cau dep SW array
-        caudepURLSW = String.format(caudepURLSW, todayDateStr, 1);
-        rbkServices.alsCaudepSW(caudepURLSW, todayDateStr);
-        // return cau 3 ngay
-        caudepURL = String.format(cau3ngay, todayDateStr);
-        rbkServices.alsCau3Ngay(caudepURL, todayDateStr);
-    }
 }

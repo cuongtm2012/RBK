@@ -112,7 +112,70 @@ public class RbkRepoImpl implements RbkRepo {
         try {
             BasicDBObject document = new BasicDBObject();
             document.put("ngaychot", cd.getNgaychot());
-            document.put("listcaudep", cd.getListCaudep());
+            document.put("limit1nhay1lon0", cd.getLimit1nhay1lon0());
+            document.put("limit2nhay1lon0", cd.getLimit2nhay1lon0());
+            document.put("limit3nhay1lon0", cd.getLimit3nhay1lon0());
+            document.put("limit4nhay1lon0", cd.getLimit4nhay1lon0());
+            document.put("limit5nhay1lon0", cd.getLimit5nhay1lon0());
+            document.put("limit6nhay1lon0", cd.getLimit6nhay1lon0());
+            document.put("limit7nhay1lon0", cd.getLimit7nhay1lon0());
+            document.put("limit8nhay1lon0", cd.getLimit8nhay1lon0());
+            document.put("limit9nhay1lon0", cd.getLimit9nhay1lon0());
+            document.put("limit10nhay1lon0", cd.getLimit10nhay1lon0());
+            document.put("limit11nhay1lon0", cd.getLimit11nhay1lon0());
+            document.put("limit12nhay1lon0", cd.getLimit12nhay1lon0());
+            document.put("limit13nhay1lon0", cd.getLimit13nhay1lon0());
+            document.put("limit14nhay1lon0", cd.getLimit14nhay1lon0());
+            document.put("limit15nhay1lon0", cd.getLimit15nhay1lon0());
+            document.put("limit16nhay1lon0", cd.getLimit16nhay1lon0());
+            document.put("limit17nhay1lon0", cd.getLimit1nhay1lon0());
+            document.put("limit18nhay1lon0", cd.getLimit1nhay1lon0());
+            document.put("limit19nhay1lon0", cd.getLimit1nhay1lon0());
+            document.put("limit20nhay1lon0", cd.getLimit1nhay1lon0());
+            document.put("limit1nhay2lon0", cd.getLimit1nhay1lon0());
+            document.put("limit2nhay2lon0", cd.getLimit1nhay1lon0());
+            document.put("limit3nhay2lon0", cd.getLimit1nhay1lon0());
+            document.put("limit4nhay2lon0", cd.getLimit1nhay1lon0());
+            document.put("limit5nhay2lon0", cd.getLimit1nhay1lon0());
+            document.put("limit1nhay3lon0", cd.getLimit1nhay1lon0());
+            document.put("limit2nhay3lon0", cd.getLimit1nhay1lon0());
+            document.put("limit3nhay3lon0", cd.getLimit1nhay1lon0());
+            document.put("limit4nhay3lon0", cd.getLimit1nhay1lon0());
+            document.put("limit5nhay3lon0", cd.getLimit1nhay1lon0());
+
+            document.put("limit1nhay1lon1", cd.getLimit1nhay1lon1());
+            document.put("limit2nhay1lon1", cd.getLimit2nhay1lon1());
+            document.put("limit3nhay1lon1", cd.getLimit3nhay1lon1());
+            document.put("limit4nhay1lon1", cd.getLimit4nhay1lon1());
+            document.put("limit5nhay1lon1", cd.getLimit5nhay1lon1());
+            document.put("limit6nhay1lon1", cd.getLimit6nhay1lon1());
+            document.put("limit7nhay1lon1", cd.getLimit7nhay1lon1());
+            document.put("limit8nhay1lon1", cd.getLimit8nhay1lon1());
+            document.put("limit9nhay1lon1", cd.getLimit9nhay1lon1());
+            document.put("limit10nhay1lon1", cd.getLimit10nhay1lon1());
+            document.put("limit11nhay1lon1", cd.getLimit11nhay1lon1());
+            document.put("limit12nhay1lon1", cd.getLimit12nhay1lon1());
+            document.put("limit13nhay1lon1", cd.getLimit13nhay1lon1());
+            document.put("limit14nhay1lon1", cd.getLimit14nhay1lon1());
+            document.put("limit15nhay1lon1", cd.getLimit15nhay1lon1());
+            document.put("limit16nhay1lon1", cd.getLimit16nhay1lon1());
+            document.put("limit17nhay1lon1", cd.getLimit17nhay1lon1());
+            document.put("limit18nhay1lon1", cd.getLimit18nhay1lon1());
+            document.put("limit19nhay1lon1", cd.getLimit19nhay1lon1());
+            document.put("limit20nhay1lon1", cd.getLimit20nhay1lon1());
+
+            document.put("limit1nhay2lon1", cd.getLimit1nhay2lon1());
+            document.put("limit2nhay2lon1", cd.getLimit2nhay2lon1());
+            document.put("limit3nhay2lon1", cd.getLimit3nhay2lon1());
+            document.put("limit4nhay2lon1", cd.getLimit4nhay2lon1());
+            document.put("limit5nhay2lon1", cd.getLimit5nhay2lon1());
+
+            document.put("limit1nhay3lon1", cd.getLimit1nhay3lon1());
+            document.put("limit2nhay3lon1", cd.getLimit2nhay3lon1());
+            document.put("limit3nhay3lon1", cd.getLimit3nhay3lon1());
+            document.put("limit4nhay3lon1", cd.getLimit4nhay3lon1());
+            document.put("limit5nhay3lon1", cd.getLimit5nhay3lon1());
+
             mongo.caudep(mongoConfig).insert(document);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -204,7 +267,7 @@ public class RbkRepoImpl implements RbkRepo {
         try {
             BasicDBObject document = new BasicDBObject();
             document.put("ngaychot", cd.getNgaychot());
-            document.put("listcaudep", cd.getListCaudep());
+//            document.put("listcaudep", cd.getListCaudep());
             mongo.caudepsw(mongoConfig).insert(document);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -227,7 +290,7 @@ public class RbkRepoImpl implements RbkRepo {
         try {
             BasicDBObject document = new BasicDBObject();
             document.put("ngaychot", cd.getNgaychot());
-            document.put("listcaudep", cd.getListCaudep());
+//            document.put("listcaudep", cd.getListCaudep());
             mongo.caudep3ngay(mongoConfig).insert(document);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -247,7 +310,7 @@ public class RbkRepoImpl implements RbkRepo {
                 caudep cd = new caudep();
                 DBObject dbobject = cursor.next();
                 cd.setNgaychot(dbobject.get("ngaychot").toString());
-                cd.setListCaudep(dbobject.get("listcaudep").toString());
+//                cd.setListCaudep(dbobject.get("listcaudep").toString());
                 listCaudep.add(cd);
                 i++;
                 if (i == 6) {

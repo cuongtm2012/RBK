@@ -19,6 +19,4 @@ public class AppConfig {
     private String trendURL;
     @Value("${rbk.caudepURL}")
     private String caudepURL;
-    @Value("${rbk.cau3ngay}")
-    private String cau3ngay;
 }

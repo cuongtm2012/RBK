@@ -1,5 +1,7 @@
 package com.vn.rbk.services.base;
 
+import com.vn.rbk.domain.caudep;
+
 public interface RbkServices {
 
     void alsChotKQ(String chotkq, String date);
@@ -8,12 +10,7 @@ public interface RbkServices {
 
     void alsTrend(String inputURL, String date);
 
-    void alsCaudep(String inputURL, String date);
+    void alsCaudep(caudep cd, String inputURL, int limit, String date, int nhay, int lon);
 
-    void alsCaudepSW(String inputURL, String date);
-
-    void alsCau3Ngay(String caudepURL, String todayDateStr);
-
-    void pushEmail();
-
+    void impCaudep(caudep cd);
 }
