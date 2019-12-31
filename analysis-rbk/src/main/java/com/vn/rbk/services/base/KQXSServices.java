@@ -14,4 +14,6 @@ public interface KQXSServices {
     caudepDTO caudep(String ngaychot, Integer limit, Integer nhay, Integer lon);
 
     ketquamn ketquamn(String ngaychot);
+
+    ketquamt ketquamt(String ngaychot);
 }

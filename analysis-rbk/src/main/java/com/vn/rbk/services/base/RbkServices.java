@@ -2,6 +2,7 @@ package com.vn.rbk.services.base;
 
 import com.vn.rbk.domain.caudep;
 import com.vn.rbk.domain.ketquamnSub;
+import com.vn.rbk.domain.ketquamtSub;
 
 import java.util.List;
 
@@ -25,4 +26,9 @@ public interface RbkServices {
 
     void impkqmn(List<ketquamnSub> ketquamnList, String ngaychot);
 
+    String parseDateMT(String toString);
+
+    List<ketquamtSub> parseNumberMT(String value, String ngaychot);
+
+    void impkqmt(List<ketquamtSub> ketquamtSubList, String ngaychot);
 }

@@ -738,4 +738,110 @@ public class RbkServicesImpl implements RbkServices {
         rbkRepo.insertKetQuaMN(ketquamnList, ngaychot);
     }
 
+    @Override
+    public String parseDateMT(String inputStr) {
+        String dateVal = "";
+        try {
+            String date = inputStr.replace("KẾT QUẢ XỔ SỐ MIỀN TRUNG NGÀY ", "");
+            date = date.substring(0, 5);
+            String inpThu = inputStr.substring(inputStr.indexOf("(") + 1, inputStr.indexOf(")"));
+            dateVal = inpThu + ", " + date;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateVal;
+    }
+
+    @Override
+    public List<ketquamtSub> parseNumberMT(String value, String ngaychot) {
+        List<ketquamtSub> ketquamtSubList = new ArrayList<>();
+        try {
+            String ketquaStr = value.replaceAll("\n", "");
+            int firstCha = ketquaStr.indexOf("[");
+            int secondCha = ketquaStr.indexOf("[", firstCha + 1);
+
+            String firstStr = ketquaStr.substring(firstCha, secondCha);
+            String secondStr = ketquaStr.substring(secondCha, ketquaStr.length());
+            ketquamtSub kqmn1 = parseKetquaMT(firstStr, ngaychot);
+            ketquamtSub kqmn2 = parseKetquaMT(secondStr, ngaychot);
+            ketquamtSubList.add(kqmn1);
+            ketquamtSubList.add(kqmn2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ketquamtSubList;
+    }
+
+    @Override
+    public void impkqmt(List<ketquamtSub> ketquamtSubList, String ngaychot) {
+        rbkRepo.insertKetQuaMT(ketquamtSubList, ngaychot);
+    }
+
+
+    private ketquamtSub parseKetquaMT(String firstStr, String ngaychot) {
+        ketquamtSub kq = new ketquamtSub();
+        try {
+            String location = firstStr.substring(firstStr.indexOf("[") + 1, firstStr.indexOf("]"));
+            firstStr = firstStr.substring(firstStr.indexOf("]"));
+            String kq0 = firstStr.substring(firstStr.indexOf("ĐB:") + 3, firstStr.indexOf("1:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("1:"));
+            String kq1 = firstStr.substring(firstStr.indexOf("1:") + 3, firstStr.indexOf("2:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("2:"));
+            String kq2 = firstStr.substring(firstStr.indexOf("2:") + 3, firstStr.indexOf("3:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("3:"));
+            String kq3 = firstStr.substring(firstStr.indexOf("3:") + 3, firstStr.indexOf("3:") + 8).trim();
+            String kq4 = firstStr.substring(firstStr.indexOf("-") + 2, firstStr.indexOf("4:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("4:"));
+            String kq5 = firstStr.substring(firstStr.indexOf("4:") + 3, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq6 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq7 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq8 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq9 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq10 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq11 = firstStr.substring(0, firstStr.indexOf("5:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("5:") + 3);
+            String kq12 = firstStr.substring(0, firstStr.indexOf("6:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("6:") + 2);
+            String kq13 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq14 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq15 = firstStr.substring(0, firstStr.indexOf("7:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("7:") + 2);
+            String kq16 = firstStr.substring(0, firstStr.indexOf("8:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("8:") + 2);
+            String kq17 = firstStr.substring(0, firstStr.length()).trim();
+            kq.setKq0(kq0);
+            kq.setKq1(kq1);
+            kq.setKq2(kq2);
+            kq.setKq3(kq3);
+            kq.setKq4(kq4);
+            kq.setKq5(kq5);
+            kq.setKq6(kq6);
+            kq.setKq7(kq7);
+            kq.setKq8(kq8);
+            kq.setKq9(kq9);
+            kq.setKq10(kq10);
+            kq.setKq11(kq11);
+            kq.setKq12(kq12);
+            kq.setKq13(kq13);
+            kq.setKq14(kq14);
+            kq.setKq15(kq15);
+            kq.setKq16(kq16);
+            kq.setKq17(kq17);
+            kq.setLocation(location);
+            kq.setNgaychot(ngaychot);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return kq;
+    }
+
 }

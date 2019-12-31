@@ -12,9 +12,11 @@ import com.sun.syndication.io.XmlReader;
 import com.vn.rbk.AppConfig;
 import com.vn.rbk.domain.caudep;
 import com.vn.rbk.domain.ketquamnSub;
+import com.vn.rbk.domain.ketquamtSub;
 import com.vn.rbk.services.base.BatchServices;
 import com.vn.rbk.services.base.RbkServices;
 import com.vn.rbk.util.DateUtil;
+import com.vn.rbk.util.Validator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -121,6 +123,25 @@ public class RbkController {
                 String ngaychot = rbkServices.parseDate(((SyndEntryImpl) o).getTitle().toString());
                 List<ketquamnSub> ketquamnList = rbkServices.parseNumber(((SyndEntryImpl) o).getDescription().getValue(), ngaychot);
                 rbkServices.impkqmn(ketquamnList, ngaychot);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Scheduled(cron = "0 0 19 * * *")
+    public void rssmt() {
+        try {
+            URL feedSource = new URL("https://xskt.com.vn/rss-feed/mien-trung-xsmt.rss");
+            SyndFeedInput input = new SyndFeedInput();
+            SyndFeed feed = input.build(new XmlReader(feedSource));
+            List object = feed.getEntries();
+            for (Object o : object) {
+                String ngaychot = rbkServices.parseDateMT(((SyndEntryImpl) o).getTitle().toString());
+                if (Validator.validateString(ngaychot)) {
+                    List<ketquamtSub> ketquamtSubList = rbkServices.parseNumberMT(((SyndEntryImpl) o).getDescription().getValue(), ngaychot);
+                    rbkServices.impkqmt(ketquamtSubList, ngaychot);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

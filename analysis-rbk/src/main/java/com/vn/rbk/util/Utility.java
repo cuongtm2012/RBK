@@ -12,9 +12,9 @@ import java.util.Scanner;
 @Slf4j
 public class Utility {
 
-    private WebClient webClient;
     static int WEBTIMEOUT = 10000;
     private static Scanner scanner;
+    private WebClient webClient;
 
     public static String obtainContent(String url) {
         String content = null;

@@ -20,10 +20,9 @@ import java.util.regex.Pattern;
 @Repository
 @Slf4j
 public class KQXSRepoImpl implements KQXSRepo {
+    public static MongoManager mongo = new MongoManager();
     @Autowired
     MongoConfig mongoConfig;
-
-    public static MongoManager mongo = new MongoManager();
 
     @Override
     public List<chotKQ> getChotKQ(String ngaychot, String email, String name, Integer skip, Integer limit) {
@@ -431,6 +430,120 @@ public class KQXSRepoImpl implements KQXSRepo {
                 }
                 kq.setNgaychot(ngaychot1);
                 kq.setLotto(ketquamnSubList);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return kq;
+    }
+
+    @Override
+    public ketquamt getketquamt(String ngaychot) {
+        ketquamt kq = new ketquamt();
+        try {
+            BasicDBObject document = new BasicDBObject();
+            if (Validator.validateString(ngaychot)) {
+                document.put("ngaychot", java.util.regex.Pattern.compile(ngaychot));
+            }
+            DBCursor cursor = mongo.ketquamt(mongoConfig).find(document);
+            while (cursor.hasNext()) {
+                List<ketquamtSub> ketquamtSubList = new ArrayList<>();
+                DBObject dbobject = cursor.next();
+                String ngaychot1 = dbobject.get("ngaychot").toString();
+                BasicDBList lottos = (BasicDBList) dbobject.get("lotto");
+                BasicDBObject[] lottoArr = lottos.toArray(new BasicDBObject[0]);
+                for (BasicDBObject lotto : lottoArr) {
+                    ketquamtSub kqSub = new ketquamtSub();
+                    kqSub.setKq0(lotto.get("kq0").toString());
+                    kqSub.setKq1(lotto.get("kq1").toString());
+                    kqSub.setKq2(lotto.get("kq2").toString());
+                    kqSub.setKq3(lotto.get("kq3").toString());
+                    kqSub.setKq4(lotto.get("kq4").toString());
+                    kqSub.setKq5(lotto.get("kq5").toString());
+                    kqSub.setKq6(lotto.get("kq6").toString());
+                    kqSub.setKq7(lotto.get("kq7").toString());
+                    kqSub.setKq8(lotto.get("kq8").toString());
+                    kqSub.setKq9(lotto.get("kq9").toString());
+                    kqSub.setKq10(lotto.get("kq10").toString());
+                    kqSub.setKq11(lotto.get("kq11").toString());
+                    kqSub.setKq12(lotto.get("kq12").toString());
+                    kqSub.setKq13(lotto.get("kq13").toString());
+                    kqSub.setKq14(lotto.get("kq14").toString());
+                    kqSub.setKq15(lotto.get("kq15").toString());
+                    kqSub.setKq16(lotto.get("kq16").toString());
+                    kqSub.setKq17(lotto.get("kq17").toString());
+                    kqSub.setKq17(lotto.get("kq18").toString());
+
+                    if (Validator.validate(lotto.get("dau0"))) {
+                        kqSub.setDau0(lotto.get("dau0").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau1"))) {
+                        kqSub.setDau1(lotto.get("dau1").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau2"))) {
+                        kqSub.setDau1(lotto.get("dau2").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau3"))) {
+                        kqSub.setDau1(lotto.get("dau3").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau4"))) {
+                        kqSub.setDau1(lotto.get("dau4").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau5"))) {
+                        kqSub.setDau1(lotto.get("dau5").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau6"))) {
+                        kqSub.setDau1(lotto.get("dau6").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau7"))) {
+                        kqSub.setDau1(lotto.get("dau7").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau8"))) {
+                        kqSub.setDau1(lotto.get("dau8").toString());
+                    }
+                    if (Validator.validate(lotto.get("dau9"))) {
+                        kqSub.setDau1(lotto.get("dau9").toString());
+                    }
+
+
+                    if (Validator.validate(lotto.get("dit0"))) {
+                        kqSub.setDit0(lotto.get("dit0").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit1"))) {
+                        kqSub.setDit1(lotto.get("dit1").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit2"))) {
+                        kqSub.setDit2(lotto.get("dit2").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit3"))) {
+                        kqSub.setDit3(lotto.get("dit3").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit4"))) {
+                        kqSub.setDit4(lotto.get("dit4").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit5"))) {
+                        kqSub.setDit5(lotto.get("dit5").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit6"))) {
+                        kqSub.setDit6(lotto.get("dit6").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit7"))) {
+                        kqSub.setDit7(lotto.get("dit7").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit8"))) {
+                        kqSub.setDit8(lotto.get("dit8").toString());
+                    }
+                    if (Validator.validate(lotto.get("dit9"))) {
+                        kqSub.setDit9(lotto.get("dit9").toString());
+                    }
+
+                    kqSub.setNgaychot(lotto.get("ngaychot").toString());
+                    kqSub.setLocation(lotto.get("location").toString());
+
+                    ketquamtSubList.add(kqSub);
+                }
+                kq.setNgaychot(ngaychot1);
+                kq.setLotto(ketquamtSubList);
             }
         } catch (Exception e) {
             e.printStackTrace();

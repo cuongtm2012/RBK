@@ -48,4 +48,8 @@ public class MongoManager {
     public DBCollection ketquamn(MongoConfig mongoConfig) {
         return initDB(mongoConfig).getCollection("ketquamn");
     }
+
+    public DBCollection ketquamt(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("ketquamt");
+    }
 }

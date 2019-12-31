@@ -27,4 +27,6 @@ public interface RbkRepo {
     void dltChotKQ(DBCollection chotKQCl, String email, String date);
 
     void insertKetQuaMN(List<ketquamnSub> ketquamnList, String ngaychot);
+
+    void insertKetQuaMT(List<ketquamtSub> ketquamtSubList, String ngaychot);
 }

@@ -14,4 +14,6 @@ public interface KQXSRepo {
     caudepDTO getcaudep(String ngaychot, Integer limit, Integer nhay, Integer lon);
 
     ketquamn getketquamn(String ngaychot);
+
+    ketquamt getketquamt(String ngaychot);
 }

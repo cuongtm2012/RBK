@@ -121,4 +121,15 @@ public class KQXSController {
         logger.info("--------- END ---------- ::" + System.currentTimeMillis());
         return new ResponseEntity<>(kq, HttpStatus.OK);
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/ketquamt")
+    public ResponseEntity<?> ketquamt(
+            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot
+    ) {
+        logger.info("--------- START ---------- ::" + System.currentTimeMillis());
+        ketquamt kq = kqxsServices.ketquamt(ngaychot);
+        logger.info("--------- END ---------- ::" + System.currentTimeMillis());
+        return new ResponseEntity<>(kq, HttpStatus.OK);
+    }
 }

@@ -45,4 +45,10 @@ public class KQXSServicesImpl implements KQXSServices {
         ketquamn kq = kqxsRepo.getketquamn(ngaychot);
         return kq;
     }
+
+    @Override
+    public ketquamt ketquamt(String ngaychot) {
+        ketquamt kq = kqxsRepo.getketquamt(ngaychot);
+        return kq;
+    }
 }

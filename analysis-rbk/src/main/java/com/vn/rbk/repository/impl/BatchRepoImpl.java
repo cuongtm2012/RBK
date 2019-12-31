@@ -17,10 +17,9 @@ import java.util.List;
 @Repository
 @Slf4j
 public class BatchRepoImpl implements BatchRepo {
+    public static MongoManager mongo = new MongoManager();
     @Autowired
     MongoConfig mongoConfig;
-
-    public static MongoManager mongo = new MongoManager();
 
     @Override
     public String getKQbyDate(String date) {

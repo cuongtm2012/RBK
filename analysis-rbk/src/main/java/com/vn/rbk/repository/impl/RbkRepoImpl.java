@@ -22,10 +22,9 @@ import java.util.List;
 @Repository
 @Slf4j
 public class RbkRepoImpl implements RbkRepo {
+    public static MongoManager mongo = new MongoManager();
     @Autowired
     MongoConfig mongoConfig;
-
-    public static MongoManager mongo = new MongoManager();
 
     @Override
     public void insertChotKQ(ArrayList<chotKQ> chotKQlist, String date) {
@@ -286,6 +285,27 @@ public class RbkRepoImpl implements RbkRepo {
             int count = mongo.ketquamn(mongoConfig).find(new BasicDBObject("ngaychot", ngaychot)).count();
             if (count < 1) {
                 mongo.ketquamn(mongoConfig).insert(document);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void insertKetQuaMT(List<ketquamtSub> ketquamtSubList, String ngaychot) {
+        try {
+            BasicDBObject document = new BasicDBObject();
+            document.put("ngaychot", ngaychot);
+            ArrayList<DBObject> array = new ArrayList<DBObject>();
+            for (ketquamtSub sub : ketquamtSubList) {
+                DBObject dbo;
+                dbo = sub.bsonFromPojo();
+                array.add(dbo);
+            }
+            document.put("lotto", array);
+            int count = mongo.ketquamt(mongoConfig).find(new BasicDBObject("ngaychot", ngaychot)).count();
+            if (count < 1) {
+                mongo.ketquamt(mongoConfig).insert(document);
             }
         } catch (Exception e) {
             e.printStackTrace();
