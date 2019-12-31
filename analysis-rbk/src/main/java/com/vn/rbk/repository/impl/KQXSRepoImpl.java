@@ -479,7 +479,7 @@ public class KQXSRepoImpl implements KQXSRepo {
                     kqSub.setKq15(lotto.get("kq15").toString());
                     kqSub.setKq16(lotto.get("kq16").toString());
                     kqSub.setKq17(lotto.get("kq17").toString());
-                    kqSub.setKq17(lotto.get("kq18").toString());
+                    kqSub.setKq18(lotto.get("kq18").toString());
 
                     if (Validator.validate(lotto.get("dau0"))) {
                         kqSub.setDau0(lotto.get("dau0").toString());
