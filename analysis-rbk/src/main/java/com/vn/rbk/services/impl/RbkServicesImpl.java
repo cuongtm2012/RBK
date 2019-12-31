@@ -422,7 +422,7 @@ public class RbkServicesImpl implements RbkServices {
                 parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_25.substring(kq_25.length() - 2, kq_25.length()));
                 parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_26.substring(kq_26.length() - 2, kq_26.length()));
 
-                kq.setKqAr(kqAr.toString());
+                kq.setKqAr(kqAr);
                 kq.setKq0(kq_0);
                 kq.setKq1(kq_1);
                 kq.setKq2(kq_2);
@@ -652,10 +652,20 @@ public class RbkServicesImpl implements RbkServices {
             int firstCha = ketquaStr.indexOf("[");
             int secondCha = ketquaStr.indexOf("[", firstCha + 1);
             int thirdCha = ketquaStr.indexOf("[", secondCha + 1);
+            int fourCha = ketquaStr.indexOf("[", thirdCha + 1);
 
             String firstStr = ketquaStr.substring(firstCha, secondCha);
             String secondStr = ketquaStr.substring(secondCha, thirdCha);
             String thirdStr = ketquaStr.substring(thirdCha, ketquaStr.length());
+            String fourStr = "";
+            if(fourCha > 0){
+                thirdStr = ketquaStr.substring(thirdCha, fourCha);
+                fourStr = ketquaStr.substring(fourCha, ketquaStr.length());
+
+                ketquamnSub kqmn4 = parseKetqua(fourStr, ngaychot);
+                ketquamnList.add(kqmn4);
+            }
+
             ketquamnSub kqmn1 = parseKetqua(firstStr, ngaychot);
             ketquamnSub kqmn2 = parseKetqua(secondStr, ngaychot);
             ketquamnSub kqmn3 = parseKetqua(thirdStr, ngaychot);
@@ -706,7 +716,7 @@ public class RbkServicesImpl implements RbkServices {
             firstStr = firstStr.substring(firstStr.indexOf("7:") + 2);
             String kq16 = firstStr.substring(0, firstStr.indexOf("8:")).trim();
             firstStr = firstStr.substring(firstStr.indexOf("8:") + 2);
-            String kq17 = firstStr.substring(0, firstStr.length()).trim();
+            String kq17 = firstStr.substring(0, 3).trim();
             kq.setKq0(kq0);
             kq.setKq1(kq1);
             kq.setKq2(kq2);

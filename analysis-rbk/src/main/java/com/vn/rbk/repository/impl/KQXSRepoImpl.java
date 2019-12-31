@@ -165,7 +165,14 @@ public class KQXSRepoImpl implements KQXSRepo {
                 kq.setDit9(dbobject.get("dit9").toString().replaceAll("\\[", "").replaceAll("\\]", ""));
 
                 kq.setNgaychot(dbobject.get("ngaychot").toString());
-                kq.setKqAr(dbobject.get("kqAr").toString());
+
+                BasicDBList kqAr = (BasicDBList) dbobject.get("kqAr");
+                List<String> ketquaArr = new ArrayList<>();
+                for (int i = 0; i < kqAr.size(); i++) {
+                    ketquaArr.add(kqAr.get(i).toString());
+                }
+
+                kq.setKqAr(ketquaArr);
                 ketquaList.add(kq);
             }
         } catch (Exception e) {

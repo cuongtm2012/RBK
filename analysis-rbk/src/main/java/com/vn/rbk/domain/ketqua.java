@@ -2,9 +2,12 @@ package com.vn.rbk.domain;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 public class ketqua {
-    String kqAr = "";
+    List<String> kqAr = new ArrayList<>();
     String kq0 = "";
     String kq1 = "";
     String kq2 = "";
