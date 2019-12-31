@@ -6,5 +6,5 @@ rbk:
   trendURL: https://rongbachkim.com/trend.php?list&alone&day=%s&trendlimit=100
   caudepURL: https://rongbachkim.com/soicau.html?submit=1&setmode=full&exactlimit=0&limit=%s&ngay=%s&nhay=%s&lon=%s
 mongo:
-  server: 1.55.215.217
+  server: 127.0.0.1
   port: 27017
