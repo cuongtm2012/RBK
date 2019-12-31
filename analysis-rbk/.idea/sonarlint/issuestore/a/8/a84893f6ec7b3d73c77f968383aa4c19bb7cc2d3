@@ -1,0 +1,15 @@
+
+Gsquid:S1444"+Make this "public static mongo" field final(®¢¯áÿÿÿÿÿ
+esquid:S1192"IDefine a constant instead of duplicating this literal "ngaychot" 7 times.(ä¶ıùÿÿÿÿ
+Isquid:S1905I"+Remove this unnecessary cast to "DBObject".(ÙÒüç8ó¢ùŞí-
+Isquid:S1905-"+Remove this unnecessary cast to "DBObject".(ÙÒüç8ó¢ùŞí-
+isquid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(ø‡˜ø8ù–¥Âï-
+isquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(ø‡˜ø8ºÎ¥Âï-
+nsquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(ó»†Ûúÿÿÿÿ8ëˆ¦Âï-
+Isquid:S1905!"+Remove this unnecessary cast to "DBObject".(ÙÒüç8ó¢ùŞí-
+squid:S4144b"aUpdate this method so that its implementation is not identical to "updateCaudep3Ngay" on line 90.(°øÉ8ëˆ¦Âï-
+nsquid:CommentedOutCodeLineT"<This block of commented-out lines of code should be removed.(ó»†Ûúÿÿÿÿ8åò¥Âï-
+nsquid:CommentedOutCodeLine\"<This block of commented-out lines of code should be removed.(ó»†Ûúÿÿÿÿ8åò¥Âï-
+‹"squid:ClassVariableVisibilityCheck"QMake mongo a static final constant or non-public and provide accessors if needed.(®¢¯áÿÿÿÿÿ8ÂØµâã-
+isquid:CommentedOutCodeLine="<This block of commented-out lines of code should be removed.(ø‡˜ø8ä¸¥Âï-
+Isquid:S1905;"+Remove this unnecessary cast to "DBObject".(ÙÒüç8ó¢ùŞí-

@@ -33,5 +33,27 @@ public class ketqua {
     String kq25 = "";
     String kq26 = "";
 
+    String dau0;
+    String dau1;
+    String dau2;
+    String dau3;
+    String dau4;
+    String dau5;
+    String dau6;
+    String dau7;
+    String dau8;
+    String dau9;
+
+    String dit0;
+    String dit1;
+    String dit2;
+    String dit3;
+    String dit4;
+    String dit5;
+    String dit6;
+    String dit7;
+    String dit8;
+    String dit9;
+
     String ngaychot;
 }

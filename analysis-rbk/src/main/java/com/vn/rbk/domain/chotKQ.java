@@ -20,4 +20,5 @@ public class chotKQ {
     String ratio_lo = "";
     String ratio_lobt = "";
     String ratio_debt = "";
+    String time = "";
 }

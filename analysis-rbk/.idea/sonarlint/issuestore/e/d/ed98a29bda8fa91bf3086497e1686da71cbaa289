@@ -1,0 +1,87 @@
+
+qsquid:S00117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öè¬€8ïëä½ò-
+]squid:S1858à"E"kqArr" is an array of strings, there's no need to call "toString()".(Ö°¡È
+dsquid:S1858ì"E"kqArr" is an array of strings, there's no need to call "toString()".(éİÆ¤8—¦Ÿöó-
+vsquid:S00117Ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒøºüÿÿÿÿ8ˆ–Êï-
+vsquid:S00117ç"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶¸Â„şÿÿÿÿ8±ê†Êï-
+vsquid:S00117Ş"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸á¦ûÿÿÿÿ8 £Ä˜ñ-
+qsquid:S00117í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ó»û8—¦Ÿöó-
+jsquid:S00117á"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑÿŠÑ
+bsquid:S1858Ş"E"kqArr" is an array of strings, there's no need to call "toString()".(¸á¦ûÿÿÿÿ
+Esquid:S1905â"&Remove this unnecessary cast to "int".(âã…Ò8úÁ¼ˆô-
+bsquid:S1858å"E"kqArr" is an array of strings, there's no need to call "toString()".(ü¢Ïİÿÿÿÿÿ
+]squid:S1858Ù"E"kqArr" is an array of strings, there's no need to call "toString()".(ğÓÒ
+jsquid:S00117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÓÒ
+Jsquid:S1905ê"&Remove this unnecessary cast to "int".(Ğ³ıœùÿÿÿÿ8úÁ¼ˆô-
+]squid:S1858Ü"E"kqArr" is an array of strings, there's no need to call "toString()".(Ú‹É‘
+qsquid:S3776»"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(™…à¶8“é¦öó-
+vsquid:S00117Ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ¬¹…úÿÿÿÿ8—¦Ÿöó-
+vsquid:S00117×"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›šÓÁüÿÿÿÿ8ˆ–Êï-
+Esquid:S1905æ"&Remove this unnecessary cast to "int".(îËÓ¦8úÁ¼ˆô-
+isquid:S1858è"E"kqArr" is an array of strings, there's no need to call "toString()".(‘™Çÿûÿÿÿÿ8·‘È½ò-
+qsquid:S00117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å×ñƒ8±ê†Êï-
+qsquid:S00117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éİÆ¤8—¦Ÿöó-
+]squid:S1858Û"E"kqArr" is an array of strings, there's no need to call "toString()".(–Ş¬í
+Esquid:S1905Ş"&Remove this unnecessary cast to "int".(ôóĞ8úÁ¼ˆô-
+vsquid:S00117Í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µÀƒøÿÿÿÿ8“é¦öó-
+]squid:S1858Ú"E"kqArr" is an array of strings, there's no need to call "toString()".(àí°£
+vsquid:S00117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½‹ô…øÿÿÿÿ8—¦Ÿöó-
+bsquid:S1858ß"E"kqArr" is an array of strings, there's no need to call "toString()".(¦Šíúÿÿÿÿ
+dsquid:S18549"ARemove this useless assignment to local variable "caudepLapList".(Ú·ú»ıÿÿÿÿ8“é¦öó-
+qsquid:S00117Õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ìîÖ8—¦Ÿöó-
+bsquid:S1858â"E"kqArr" is an array of strings, there's no need to call "toString()".(†…´ûıÿÿÿÿ
+vsquid:S00117é"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®¦®üÿÿÿÿ8·‘È½ò-
+osquid:S00117ß"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦Šíúÿÿÿÿ
+osquid:S00117å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¢Ïİÿÿÿÿÿ
+bsquid:S1858İ"E"kqArr" is an array of strings, there's no need to call "toString()".(öúƒ’ÿÿÿÿÿ
+}squid:S2293Ø"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğéã“ÿÿÿÿÿ8“é¦öó-
+vsquid:S00117Ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥‡°üÿÿÿÿ8“é¦öó-
+vsquid:S00117Ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ó•…ÿÿÿÿÿ8ïëä½ò-
+qsquid:S00117Ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®Š°8“é¦öó-
+vsquid:S00117Õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª©Êùÿÿÿÿ8“é¦öó-
+isquid:S1858Ó"E"kqArr" is an array of strings, there's no need to call "toString()".(¥‡°üÿÿÿÿ8“é¦öó-
+isquid:S1858Õ"E"kqArr" is an array of strings, there's no need to call "toString()".(ª©Êùÿÿÿÿ8“é¦öó-
+Gsquid:S1148ô"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8úÁ¼ˆô-
+jsquid:S00117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú‹É‘
+dsquid:S1858í"E"kqArr" is an array of strings, there's no need to call "toString()".(«ó»û8—¦Ÿöó-
+osquid:S00117ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öş„Óıÿÿÿÿ
+isquid:S1858é"E"kqArr" is an array of strings, there's no need to call "toString()".(®¦®üÿÿÿÿ8·‘È½ò-
+jsquid:S00117à"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö°¡È
+osquid:S00117â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†…´ûıÿÿÿÿ
+vsquid:S00117Ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şü†Şıÿÿÿÿ8—¦Ÿöó-
+vsquid:S00117Ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯íñ‹ıÿÿÿÿ8ˆ–Êï-
+vsquid:S00117Ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÒòüÿÿÿÿ8“é¦öó-
+vsquid:S3776Ã"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(³ÄŒ…şÿÿÿÿ8úÁ¼ˆô-
+vsquid:S00117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤›öıÿÿÿÿ8±ê†Êï-
+isquid:S1858ç"E"kqArr" is an array of strings, there's no need to call "toString()".(¶¸Â„şÿÿÿÿ8±ê†Êï-
+Jsquid:S1905ì"&Remove this unnecessary cast to "int".(ªîñÔÿÿÿÿÿ8úÁ¼ˆô-
+isquid:S1858×"E"kqArr" is an array of strings, there's no need to call "toString()".(›šÓÁüÿÿÿÿ8ˆ–Êï-
+isquid:S1858Ö"E"kqArr" is an array of strings, there's no need to call "toString()".(¯íñ‹ıÿÿÿÿ8ˆ–Êï-
+qsquid:S00117ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Ôê8·‘È½ò-
+Jsquid:S1905ä"&Remove this unnecessary cast to "int".(¯¤›©üÿÿÿÿ8úÁ¼ˆô-
+jsquid:S00117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àí°£
+jsquid:S00117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ“»Ù
+dsquid:S1858ê"E"kqArr" is an array of strings, there's no need to call "toString()".(¶Ôê8·‘È½ò-
+Jsquid:S1905è"&Remove this unnecessary cast to "int".(Ùİƒûúÿÿÿÿ8úÁ¼ˆô-
+qsquid:S37767"SRefactor this method to reduce its Cognitive Complexity from 120 to the 15 allowed.(æ½Ü¥8“é¦öó-
+Jsquid:S1905î"&Remove this unnecessary cast to "int".(ö—Ûúÿÿÿÿ8úÁ¼ˆô-
+Usquid:S14819"2Remove this unused "caudepLapList" local variable.(Ú·ú»ıÿÿÿÿ8“é¦öó-
+bsquid:S00107Ã"=Method has 21 parameters, which is greater than 7 authorized.(³ÄŒ…şÿÿÿÿ8úÁ¼ˆô-
+isquid:S1858Ø"E"kqArr" is an array of strings, there's no need to call "toString()".(ƒøºüÿÿÿÿ8ˆ–Êï-
+isquid:S1858Ô"E"kqArr" is an array of strings, there's no need to call "toString()".(ú‰½¼øÿÿÿÿ8“é¦öó-
+]squid:S1858ä"E"kqArr" is an array of strings, there's no need to call "toString()".(Õ“»Ù
+isquid:S1858ë"E"kqArr" is an array of strings, there's no need to call "toString()".(½‹ô…øÿÿÿÿ8—¦Ÿöó-
+qsquid:S00117Ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£’±‘8ˆ–Êï-
+qsquid:S00117Ñ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊÏıº8“é¦öó-
+Esquid:S1905ğ"&Remove this unnecessary cast to "int".(…–åÉ8úÁ¼ˆô-
+]squid:S1858á"E"kqArr" is an array of strings, there's no need to call "toString()".(ÑÿŠÑ
+vsquid:S00117Ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú‰½¼øÿÿÿÿ8±ê†Êï-
+Jsquid:S1905à"&Remove this unnecessary cast to "int".(çÕ¶şüÿÿÿÿ8úÁ¼ˆô-
+vsquid:S00117Ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•œşïÿÿÿÿÿ8 £Ä˜ñ-
+vsquid:S00117İ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öúƒ’ÿÿÿÿÿ8“é¦öó-
+jsquid:S1192ú"FDefine a constant instead of duplicating this literal "ratio" 4 times.(Åñ¹óúÿÿÿÿ8“é¦öó-
+bsquid:S1858ã"E"kqArr" is an array of strings, there's no need to call "toString()".(Öş„Óıÿÿÿÿ
+isquid:S1858æ"E"kqArr" is an array of strings, there's no need to call "toString()".(¤›öıÿÿÿÿ8±ê†Êï-
+squid:S1319»"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(™…à¶8“é¦öó-
+jsquid:S00117Û"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Ş¬í
+vsquid:S00117è"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘™Çÿûÿÿÿÿ8·‘È½ò-

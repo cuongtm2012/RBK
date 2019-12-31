@@ -1,0 +1,10 @@
+
+Fsquid:S1148O"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“’øÀï-
+V
+squid:S106I"9Replace this use of System.out or System.err by a logger.(ê·‘©8“’øÀï-
+V
+squid:S1065"9Replace this use of System.out or System.err by a logger.(ê·‘©8“’øÀï-
+psquid:S00117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶§½8“’øÀï-
+Osquid:S22018",The return value of "plusDays" must be used.(”­È‡üÿÿÿÿ8“’øÀï-
+Fsquid:S1148;"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“’øÀï-
+Osquid:S2201L",The return value of "plusDays" must be used.(”­È‡üÿÿÿÿ8“’øÀï-

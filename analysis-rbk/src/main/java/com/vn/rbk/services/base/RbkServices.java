@@ -1,6 +1,9 @@
 package com.vn.rbk.services.base;
 
 import com.vn.rbk.domain.caudep;
+import com.vn.rbk.domain.ketquamnSub;
+
+import java.util.List;
 
 public interface RbkServices {
 
@@ -13,4 +16,13 @@ public interface RbkServices {
     void alsCaudep(caudep cd, String inputURL, int limit, String date, int nhay, int lon);
 
     void impCaudep(caudep cd);
+
+    int limitCaudep(String inputUrl);
+
+    String parseDate(String toString);
+
+    public List<ketquamnSub> parseNumber(String value, String ngaychot);
+
+    void impkqmn(List<ketquamnSub> ketquamnList, String ngaychot);
+
 }

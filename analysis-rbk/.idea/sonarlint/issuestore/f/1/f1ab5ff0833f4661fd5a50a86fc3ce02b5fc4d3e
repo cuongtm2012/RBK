@@ -1,0 +1,6 @@
+
+asquid:CallToDeprecatedMethod"-Remove this use of "getDB"; it is deprecated.(í“Ìùÿÿÿÿ8ÿ…­Úì-
+Ysquid:S1854"6Remove this useless assignment to local variable "db".(í“Ìùÿÿÿÿ8ÿ…­Úì-
+Asquid:S1148"#Use a logger to log this exception.(Ç’Çê8ÿ…­Úì-
+j$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(í“Ìùÿÿÿÿ8ÿ…­Úì-
+lsquid:S2095"IUse try-with-resources or close this "MongoClient" in a "finally" clause.(³ÓË˜ÿÿÿÿÿ8ÿ…­Úì-

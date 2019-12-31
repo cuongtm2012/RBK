@@ -1,9 +1,6 @@
 package com.vn.rbk.services.impl;
 
-import com.vn.rbk.domain.caudep;
-import com.vn.rbk.domain.chotKQ;
-import com.vn.rbk.domain.ketqua;
-import com.vn.rbk.domain.trend;
+import com.vn.rbk.domain.*;
 import com.vn.rbk.repository.base.RbkRepo;
 import com.vn.rbk.services.base.RbkServices;
 import com.vn.rbk.util.Utility;
@@ -57,135 +54,134 @@ public class RbkServicesImpl implements RbkServices {
     @Override
     public void alsCaudep(caudep cd, String inputURL, int limit, String date, int nhay, int lon) {
         List<String> listCaudep = caudepArr(inputURL);
+        List<caudeplap> caudepLapList = caudeplapArr(inputURL);
         cd.setNgaychot(date);
-        if (limit == 1 && nhay == 1 & lon == 0) {
+        if (limit == 1 && nhay == 1 && lon == 0) {
             cd.setLimit1nhay1lon0(listCaudep.toString());
-        } else if (limit == 2 && nhay == 1 & lon == 0) {
+        } else if (limit == 2 && nhay == 1 && lon == 0) {
             cd.setLimit2nhay1lon0(listCaudep.toString());
-        } else if (limit == 3 && nhay == 1 & lon == 0) {
+        } else if (limit == 3 && nhay == 1 && lon == 0) {
             cd.setLimit3nhay1lon0(listCaudep.toString());
-        } else if (limit == 4 && nhay == 1 & lon == 0) {
+        } else if (limit == 4 && nhay == 1 && lon == 0) {
             cd.setLimit4nhay1lon0(listCaudep.toString());
-        } else if (limit == 5 && nhay == 1 & lon == 0) {
+        } else if (limit == 5 && nhay == 1 && lon == 0) {
             cd.setLimit5nhay1lon0(listCaudep.toString());
-        } else if (limit == 6 && nhay == 1 & lon == 0) {
+        } else if (limit == 6 && nhay == 1 && lon == 0) {
             cd.setLimit6nhay1lon0(listCaudep.toString());
-        } else if (limit == 7 && nhay == 1 & lon == 0) {
+        } else if (limit == 7 && nhay == 1 && lon == 0) {
             cd.setLimit7nhay1lon0(listCaudep.toString());
-        } else if (limit == 8 && nhay == 1 & lon == 0) {
+        } else if (limit == 8 && nhay == 1 && lon == 0) {
             cd.setLimit8nhay1lon0(listCaudep.toString());
-        } else if (limit == 9 && nhay == 1 & lon == 0) {
+        } else if (limit == 9 && nhay == 1 && lon == 0) {
             cd.setLimit9nhay1lon0(listCaudep.toString());
-        } else if (limit == 10 && nhay == 1 & lon == 0) {
+        } else if (limit == 10 && nhay == 1 && lon == 0) {
             cd.setLimit10nhay1lon0(listCaudep.toString());
-        } else if (limit == 11 && nhay == 1 & lon == 0) {
+        } else if (limit == 11 && nhay == 1 && lon == 0) {
             cd.setLimit11nhay1lon0(listCaudep.toString());
-        } else if (limit == 12 && nhay == 1 & lon == 0) {
+        } else if (limit == 12 && nhay == 1 && lon == 0) {
             cd.setLimit12nhay1lon0(listCaudep.toString());
-        } else if (limit == 13 && nhay == 1 & lon == 0) {
+        } else if (limit == 13 && nhay == 1 && lon == 0) {
             cd.setLimit13nhay1lon0(listCaudep.toString());
-        } else if (limit == 14 && nhay == 1 & lon == 0) {
+        } else if (limit == 14 && nhay == 1 && lon == 0) {
             cd.setLimit14nhay1lon0(listCaudep.toString());
-        } else if (limit == 15 && nhay == 1 & lon == 0) {
+        } else if (limit == 15 && nhay == 1 && lon == 0) {
             cd.setLimit15nhay1lon0(listCaudep.toString());
-        } else if (limit == 16 && nhay == 1 & lon == 0) {
+        } else if (limit == 16 && nhay == 1 && lon == 0) {
             cd.setLimit16nhay1lon0(listCaudep.toString());
-        } else if (limit == 17 && nhay == 1 & lon == 0) {
+        } else if (limit == 17 && nhay == 1 && lon == 0) {
             cd.setLimit17nhay1lon0(listCaudep.toString());
-        } else if (limit == 18 && nhay == 1 & lon == 0) {
+        } else if (limit == 18 && nhay == 1 && lon == 0) {
             cd.setLimit18nhay1lon0(listCaudep.toString());
-        } else if (limit == 19 && nhay == 1 & lon == 0) {
+        } else if (limit == 19 && nhay == 1 && lon == 0) {
             cd.setLimit19nhay1lon0(listCaudep.toString());
-        } else if (limit == 20 && nhay == 1 & lon == 0) {
+        } else if (limit == 20 && nhay == 1 && lon == 0) {
             cd.setLimit20nhay1lon0(listCaudep.toString());
-        } else if (limit == 1 && nhay == 2 & lon == 0) {
+        } else if (limit == 1 && nhay == 2 && lon == 0) {
             cd.setLimit1nhay2lon0(listCaudep.toString());
-        } else if (limit == 2 && nhay == 2 & lon == 0) {
+        } else if (limit == 2 && nhay == 2 && lon == 0) {
             cd.setLimit2nhay2lon0(listCaudep.toString());
-        } else if (limit == 3 && nhay == 2 & lon == 0) {
+        } else if (limit == 3 && nhay == 2 && lon == 0) {
             cd.setLimit3nhay2lon0(listCaudep.toString());
-        } else if (limit == 4 && nhay == 2 & lon == 0) {
+        } else if (limit == 4 && nhay == 2 && lon == 0) {
             cd.setLimit4nhay2lon0(listCaudep.toString());
-        } else if (limit == 5 && nhay == 2 & lon == 0) {
+        } else if (limit == 5 && nhay == 2 && lon == 0) {
             cd.setLimit5nhay2lon0(listCaudep.toString());
-        } else if (limit == 1 && nhay == 3 & lon == 0) {
+        } else if (limit == 1 && nhay == 3 && lon == 0) {
             cd.setLimit1nhay3lon0(listCaudep.toString());
-        } else if (limit == 2 && nhay == 3 & lon == 0) {
+        } else if (limit == 2 && nhay == 3 && lon == 0) {
             cd.setLimit2nhay3lon0(listCaudep.toString());
-        } else if (limit == 3 && nhay == 3 & lon == 0) {
+        } else if (limit == 3 && nhay == 3 && lon == 0) {
             cd.setLimit3nhay3lon0(listCaudep.toString());
-        } else if (limit == 4 && nhay == 3 & lon == 0) {
+        } else if (limit == 4 && nhay == 3 && lon == 0) {
             cd.setLimit4nhay3lon0(listCaudep.toString());
-        } else if (limit == 5 && nhay == 3 & lon == 0) {
+        } else if (limit == 5 && nhay == 3 && lon == 0) {
             cd.setLimit5nhay3lon0(listCaudep.toString());
-        } else if (limit == 1 && nhay == 1 & lon == 1) {
-            cd.setLimit1nhay1lon0(listCaudep.toString());
-        } else if (limit == 2 && nhay == 1 & lon == 1) {
-            cd.setLimit2nhay1lon0(listCaudep.toString());
-        } else if (limit == 3 && nhay == 1 & lon == 1) {
-            cd.setLimit3nhay1lon0(listCaudep.toString());
-        } else if (limit == 4 && nhay == 1 & lon == 1) {
-            cd.setLimit4nhay1lon0(listCaudep.toString());
-        } else if (limit == 5 && nhay == 1 & lon == 1) {
-            cd.setLimit5nhay1lon0(listCaudep.toString());
-        } else if (limit == 6 && nhay == 1 & lon == 1) {
-            cd.setLimit6nhay1lon0(listCaudep.toString());
-        } else if (limit == 7 && nhay == 1 & lon == 1) {
-            cd.setLimit7nhay1lon0(listCaudep.toString());
-        } else if (limit == 8 && nhay == 1 & lon == 1) {
-            cd.setLimit8nhay1lon0(listCaudep.toString());
-        } else if (limit == 9 && nhay == 1 & lon == 1) {
-            cd.setLimit9nhay1lon0(listCaudep.toString());
-        } else if (limit == 10 && nhay == 1 & lon == 1) {
-            cd.setLimit10nhay1lon0(listCaudep.toString());
-        } else if (limit == 11 && nhay == 1 & lon == 1) {
-            cd.setLimit11nhay1lon0(listCaudep.toString());
-        } else if (limit == 12 && nhay == 1 & lon == 1) {
-            cd.setLimit12nhay1lon0(listCaudep.toString());
-        } else if (limit == 13 && nhay == 1 & lon == 1) {
-            cd.setLimit13nhay1lon0(listCaudep.toString());
-        } else if (limit == 14 && nhay == 1 & lon == 1) {
-            cd.setLimit14nhay1lon0(listCaudep.toString());
-        } else if (limit == 15 && nhay == 1 & lon == 1) {
-            cd.setLimit15nhay1lon0(listCaudep.toString());
-        } else if (limit == 16 && nhay == 1 & lon == 1) {
-            cd.setLimit16nhay1lon0(listCaudep.toString());
-        } else if (limit == 17 && nhay == 1 & lon == 1) {
-            cd.setLimit17nhay1lon0(listCaudep.toString());
-        } else if (limit == 18 && nhay == 1 & lon == 1) {
+        } else if (limit == 1 && nhay == 1 && lon == 1) {
+            cd.setLimit1nhay1lon1(listCaudep.toString());
+        } else if (limit == 2 && nhay == 1 && lon == 1) {
+            cd.setLimit2nhay1lon1(listCaudep.toString());
+        } else if (limit == 3 && nhay == 1 && lon == 1) {
+            cd.setLimit3nhay1lon1(listCaudep.toString());
+        } else if (limit == 4 && nhay == 1 && lon == 1) {
+            cd.setLimit4nhay1lon1(listCaudep.toString());
+        } else if (limit == 5 && nhay == 1 && lon == 1) {
+            cd.setLimit5nhay1lon1(listCaudep.toString());
+        } else if (limit == 6 && nhay == 1 && lon == 1) {
+            cd.setLimit6nhay1lon1(listCaudep.toString());
+        } else if (limit == 7 && nhay == 1 && lon == 1) {
+            cd.setLimit7nhay1lon1(listCaudep.toString());
+        } else if (limit == 8 && nhay == 1 && lon == 1) {
+            cd.setLimit8nhay1lon1(listCaudep.toString());
+        } else if (limit == 9 && nhay == 1 && lon == 1) {
+            cd.setLimit9nhay1lon1(listCaudep.toString());
+        } else if (limit == 10 && nhay == 1 && lon == 1) {
+            cd.setLimit10nhay1lon1(listCaudep.toString());
+        } else if (limit == 11 && nhay == 1 && lon == 1) {
+            cd.setLimit11nhay1lon1(listCaudep.toString());
+        } else if (limit == 12 && nhay == 1 && lon == 1) {
+            cd.setLimit12nhay1lon1(listCaudep.toString());
+        } else if (limit == 13 && nhay == 1 && lon == 1) {
+            cd.setLimit13nhay1lon1(listCaudep.toString());
+        } else if (limit == 14 && nhay == 1 && lon == 1) {
+            cd.setLimit14nhay1lon1(listCaudep.toString());
+        } else if (limit == 15 && nhay == 1 && lon == 1) {
+            cd.setLimit15nhay1lon1(listCaudep.toString());
+        } else if (limit == 16 && nhay == 1 && lon == 1) {
+            cd.setLimit16nhay1lon1(listCaudep.toString());
+        } else if (limit == 17 && nhay == 1 && lon == 1) {
+            cd.setLimit17nhay1lon1(listCaudep.toString());
+        } else if (limit == 18 && nhay == 1 && lon == 1) {
             cd.setLimit18nhay1lon1(listCaudep.toString());
-        } else if (limit == 19 && nhay == 1 & lon == 1) {
+        } else if (limit == 19 && nhay == 1 && lon == 1) {
             cd.setLimit19nhay1lon1(listCaudep.toString());
-        } else if (limit == 20 && nhay == 1 & lon == 1) {
+        } else if (limit == 20 && nhay == 1 && lon == 1) {
             cd.setLimit20nhay1lon1(listCaudep.toString());
-        } else if (limit == 1 && nhay == 2 & lon == 1) {
+        } else if (limit == 1 && nhay == 2 && lon == 1) {
             cd.setLimit1nhay2lon1(listCaudep.toString());
-        } else if (limit == 2 && nhay == 2 & lon == 1) {
+        } else if (limit == 2 && nhay == 2 && lon == 1) {
             cd.setLimit2nhay2lon1(listCaudep.toString());
-        } else if (limit == 3 && nhay == 2 & lon == 1) {
+        } else if (limit == 3 && nhay == 2 && lon == 1) {
             cd.setLimit3nhay2lon1(listCaudep.toString());
-        } else if (limit == 4 && nhay == 2 & lon == 1) {
+        } else if (limit == 4 && nhay == 2 && lon == 1) {
             cd.setLimit4nhay2lon1(listCaudep.toString());
-        } else if (limit == 5 && nhay == 2 & lon == 1) {
+        } else if (limit == 5 && nhay == 2 && lon == 1) {
             cd.setLimit5nhay2lon1(listCaudep.toString());
-        } else if (limit == 1 && nhay == 3 & lon == 1) {
+        } else if (limit == 1 && nhay == 3 && lon == 1) {
             cd.setLimit1nhay3lon1(listCaudep.toString());
-        } else if (limit == 2 && nhay == 3 & lon == 1) {
+        } else if (limit == 2 && nhay == 3 && lon == 1) {
             cd.setLimit2nhay3lon1(listCaudep.toString());
-        } else if (limit == 3 && nhay == 3 & lon == 1) {
+        } else if (limit == 3 && nhay == 3 && lon == 1) {
             cd.setLimit3nhay3lon1(listCaudep.toString());
-        } else if (limit == 4 && nhay == 3 & lon == 1) {
+        } else if (limit == 4 && nhay == 3 && lon == 1) {
             cd.setLimit4nhay3lon1(listCaudep.toString());
-        } else if (limit == 5 && nhay == 3 & lon == 1) {
+        } else if (limit == 5 && nhay == 3 && lon == 1) {
             cd.setLimit5nhay3lon1(listCaudep.toString());
         }
     }
 
     @Override
     public void impCaudep(caudep cd) {
-        if(!rbkRepo.isExistCauDep(cd.getNgaychot())){
-            rbkRepo.insertCauDep(cd);
-        }
+        rbkRepo.insertCauDep(cd);
     }
 
     public ArrayList<chotKQ> parseChotKQ(String chotkq) {
@@ -312,6 +308,27 @@ public class RbkServicesImpl implements RbkServices {
 
     public ketqua ketquasx(String inputURL) {
         ketqua kq = new ketqua();
+        List<String> dau0 = new ArrayList<>();
+        List<String> dau1 = new ArrayList<>();
+        List<String> dau2 = new ArrayList<>();
+        List<String> dau3 = new ArrayList<>();
+        List<String> dau4 = new ArrayList<>();
+        List<String> dau5 = new ArrayList<>();
+        List<String> dau6 = new ArrayList<>();
+        List<String> dau7 = new ArrayList<>();
+        List<String> dau8 = new ArrayList<>();
+        List<String> dau9 = new ArrayList<>();
+
+        List<String> dit0 = new ArrayList<>();
+        List<String> dit1 = new ArrayList<>();
+        List<String> dit2 = new ArrayList<>();
+        List<String> dit3 = new ArrayList<>();
+        List<String> dit4 = new ArrayList<>();
+        List<String> dit5 = new ArrayList<>();
+        List<String> dit6 = new ArrayList<>();
+        List<String> dit7 = new ArrayList<>();
+        List<String> dit8 = new ArrayList<>();
+        List<String> dit9 = new ArrayList<>();
 
         try {
             String content = Utility.obtainContent(inputURL);
@@ -377,6 +394,34 @@ public class RbkServicesImpl implements RbkServices {
                 kqAr.add(kq_26.substring(kq_26.length() - 2, kq_26.length()));
                 Collections.sort(kqAr);
 
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_0.substring(kq_0.length() - 2, kq_0.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_1.substring(kq_1.length() - 2, kq_1.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_2.substring(kq_2.length() - 2, kq_2.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_3.substring(kq_3.length() - 2, kq_3.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_4.substring(kq_4.length() - 2, kq_4.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_5.substring(kq_5.length() - 2, kq_5.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_6.substring(kq_6.length() - 2, kq_6.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_7.substring(kq_7.length() - 2, kq_7.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_8.substring(kq_8.length() - 2, kq_8.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_9.substring(kq_9.length() - 2, kq_9.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_10.substring(kq_10.length() - 2, kq_10.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_11.substring(kq_11.length() - 2, kq_11.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_12.substring(kq_12.length() - 2, kq_12.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_13.substring(kq_13.length() - 2, kq_13.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_14.substring(kq_14.length() - 2, kq_14.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_15.substring(kq_15.length() - 2, kq_15.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_16.substring(kq_16.length() - 2, kq_16.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_17.substring(kq_17.length() - 2, kq_17.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_18.substring(kq_18.length() - 2, kq_18.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_19.substring(kq_19.length() - 2, kq_19.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_20.substring(kq_20.length() - 2, kq_20.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_21.substring(kq_21.length() - 2, kq_21.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_22.substring(kq_22.length() - 2, kq_22.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_23.substring(kq_23.length() - 2, kq_23.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_24.substring(kq_24.length() - 2, kq_24.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_25.substring(kq_25.length() - 2, kq_25.length()));
+                parsingNumber(dau0, dau1, dau2, dau3, dau4, dau5, dau6, dau7, dau8, dau9, dit0, dit1, dit2, dit3, dit4, dit5, dit6, dit7, dit8, dit9, kq_26.substring(kq_26.length() - 2, kq_26.length()));
+
                 kq.setKqAr(kqAr.toString());
                 kq.setKq0(kq_0);
                 kq.setKq1(kq_1);
@@ -405,6 +450,50 @@ public class RbkServicesImpl implements RbkServices {
                 kq.setKq24(kq_24);
                 kq.setKq25(kq_25);
                 kq.setKq26(kq_26);
+
+                Collections.sort(dau0);
+                Collections.sort(dau1);
+                Collections.sort(dau2);
+                Collections.sort(dau3);
+                Collections.sort(dau4);
+                Collections.sort(dau5);
+                Collections.sort(dau6);
+                Collections.sort(dau7);
+                Collections.sort(dau8);
+                Collections.sort(dau9);
+
+                Collections.sort(dit0);
+                Collections.sort(dit1);
+                Collections.sort(dit2);
+                Collections.sort(dit3);
+                Collections.sort(dit4);
+                Collections.sort(dit5);
+                Collections.sort(dit6);
+                Collections.sort(dit7);
+                Collections.sort(dit8);
+                Collections.sort(dit9);
+
+                kq.setDau0(dau0.toString());
+                kq.setDau1(dau1.toString());
+                kq.setDau2(dau2.toString());
+                kq.setDau3(dau3.toString());
+                kq.setDau4(dau4.toString());
+                kq.setDau5(dau5.toString());
+                kq.setDau6(dau6.toString());
+                kq.setDau7(dau7.toString());
+                kq.setDau8(dau8.toString());
+                kq.setDau9(dau9.toString());
+
+                kq.setDit0(dit0.toString());
+                kq.setDit1(dit1.toString());
+                kq.setDit2(dit2.toString());
+                kq.setDit3(dit3.toString());
+                kq.setDit4(dit4.toString());
+                kq.setDit5(dit5.toString());
+                kq.setDit6(dit6.toString());
+                kq.setDit7(dit7.toString());
+                kq.setDit8(dit8.toString());
+                kq.setDit9(dit9.toString());
             }
 
         } catch (Exception e) {
@@ -445,20 +534,25 @@ public class RbkServicesImpl implements RbkServices {
         return listCaudep;
     }
 
-    public List<String> caudepArrSW(String inputUrl) {
-        List<String> listCaudep = new ArrayList<>();
+
+    private List<caudeplap> caudeplapArr(String inputURL) {
+        List<caudeplap> listCaudep = new ArrayList<>();
         try {
-            if (!StringUtils.isEmpty(inputUrl)) {
-                Document doc = Jsoup.connect(inputUrl).get();
+            if (!StringUtils.isEmpty(inputURL)) {
+                Document doc = Jsoup.connect(inputURL).get();
                 Elements ketquaClass = doc.getElementsByClass("tbl1");
                 for (Element element : ketquaClass) {
-                    Elements sodep = element.getElementsByTag("tr");
-                    for (Element el : sodep) {
-                        String col1 = el.getElementsByClass("col1").html();
-                        Integer col2 = Integer.parseInt(el.getElementsByClass("col2").html().substring(0, 1));
-                        if (col2 > 3) {
-                            listCaudep.add(col1);
-                        }
+                    caudeplap cd = new caudeplap();
+                    Elements col1list = element.getElementsByClass("col1");
+                    for (Element ele : col1list) {
+                        cd.setCaudep(ele.getElementsByClass("col1").html());
+                        listCaudep.add(cd);
+
+                    }
+
+                    Elements col2list = element.getElementsByClass("col2");
+                    for (Element ele : col2list) {
+                        cd.setCaudep(ele.getElementsByClass("col2").html());
                     }
                 }
             }
@@ -468,30 +562,180 @@ public class RbkServicesImpl implements RbkServices {
         return listCaudep;
     }
 
-    public List<String> caudep3ngay(String inputUrl) {
-        int count = 0;
-        List<String> listCaudep = new ArrayList<>();
+    public int limitCaudep(String inputUrl) {
+        int limit = 0;
         try {
             if (!StringUtils.isEmpty(inputUrl)) {
                 Document doc = Jsoup.connect(inputUrl).get();
-                Elements ketquaClass = doc.getElementsByClass("tbl1");
-                for (Element element : ketquaClass) {
-                    Elements sodep = element.getElementsByTag("tr");
-                    for (Element el : sodep) {
-                        count++;
-                        String col1 = el.getElementsByClass("col1").html();
-                        listCaudep.add(col1);
-                        if (count > 2) {
-                            return listCaudep;
-                        }
-                    }
-
-                }
+                Elements ketquaClass = doc.getElementsByClass("showdays_td");
+                limit = ketquaClass.size();
             }
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        return listCaudep;
+        return limit;
+    }
+
+    private void parsingNumber(List<String> dau0, List<String> dau1, List<String> dau2, List<String> dau3, List<String> dau4, List<String> dau5, List<String> dau6, List<String> dau7, List<String> dau8, List<String> dau9,
+                               List<String> dit0, List<String> dit1, List<String> dit2, List<String> dit3, List<String> dit4, List<String> dit5, List<String> dit6, List<String> dit7, List<String> dit8, List<String> dit9,
+                               String val) {
+        try {
+            if (Validator.validateString(val)) {
+                Integer valInt = Integer.parseInt(val);
+                if (valInt % 10 == 0)
+                    dit0.add(val);
+                else if (valInt % 10 == 1)
+                    dit1.add(val);
+                else if (valInt % 10 == 2)
+                    dit2.add(val);
+                else if (valInt % 10 == 3)
+                    dit3.add(val);
+                else if (valInt % 10 == 4)
+                    dit4.add(val);
+                else if (valInt % 10 == 5)
+                    dit5.add(val);
+                else if (valInt % 10 == 6)
+                    dit6.add(val);
+                else if (valInt % 10 == 7)
+                    dit7.add(val);
+                else if (valInt % 10 == 8)
+                    dit8.add(val);
+                else if (valInt % 10 == 9)
+                    dit9.add(val);
+
+                if ((int) (valInt / 10) == 0)
+                    dau0.add(val);
+                else if ((int) (valInt / 10) == 1)
+                    dau1.add(val);
+                else if ((int) (valInt / 10) == 2)
+                    dau2.add(val);
+                else if ((int) (valInt / 10) == 3)
+                    dau3.add(val);
+                else if ((int) (valInt / 10) == 4)
+                    dau4.add(val);
+                else if ((int) (valInt / 10) == 5)
+                    dau5.add(val);
+                else if ((int) (valInt / 10) == 6)
+                    dau6.add(val);
+                else if ((int) (valInt / 10) == 7)
+                    dau7.add(val);
+                else if ((int) (valInt / 10) == 8)
+                    dau8.add(val);
+                else if ((int) (valInt / 10) == 9)
+                    dau9.add(val);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String parseDate(String inputStr) {
+        String dateVal = "";
+        try {
+            String date = inputStr.replace("KẾT QUẢ XỔ SỐ MIỀN NAM NGÀY ", "");
+            date = date.substring(0, 5);
+            String inpThu = inputStr.substring(inputStr.indexOf("(") + 1, inputStr.indexOf(")"));
+            dateVal = inpThu + ", " + date;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateVal;
+    }
+
+    @Override
+    public List<ketquamnSub> parseNumber(String value, String ngaychot) {
+        List<ketquamnSub> ketquamnList = new ArrayList<>();
+        try {
+            String ketquaStr = value.replaceAll("\n", "");
+            int firstCha = ketquaStr.indexOf("[");
+            int secondCha = ketquaStr.indexOf("[", firstCha + 1);
+            int thirdCha = ketquaStr.indexOf("[", secondCha + 1);
+
+            String firstStr = ketquaStr.substring(firstCha, secondCha);
+            String secondStr = ketquaStr.substring(secondCha, thirdCha);
+            String thirdStr = ketquaStr.substring(thirdCha, ketquaStr.length());
+            ketquamnSub kqmn1 = parseKetqua(firstStr, ngaychot);
+            ketquamnSub kqmn2 = parseKetqua(secondStr, ngaychot);
+            ketquamnSub kqmn3 = parseKetqua(thirdStr, ngaychot);
+            ketquamnList.add(kqmn1);
+            ketquamnList.add(kqmn2);
+            ketquamnList.add(kqmn3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ketquamnList;
+    }
+
+    private ketquamnSub parseKetqua(String firstStr, String ngaychot) {
+        ketquamnSub kq = new ketquamnSub();
+        try {
+            String location = firstStr.substring(firstStr.indexOf("[") + 1, firstStr.indexOf("]"));
+            firstStr = firstStr.substring(firstStr.indexOf("]"));
+            String kq0 = firstStr.substring(firstStr.indexOf("ĐB:") + 3, firstStr.indexOf("1:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("1:"));
+            String kq1 = firstStr.substring(firstStr.indexOf("1:") + 3, firstStr.indexOf("2:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("2:"));
+            String kq2 = firstStr.substring(firstStr.indexOf("2:") + 3, firstStr.indexOf("3:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("3:"));
+            String kq3 = firstStr.substring(firstStr.indexOf("3:") + 3, firstStr.indexOf("3:") + 8).trim();
+            String kq4 = firstStr.substring(firstStr.indexOf("-") + 2, firstStr.indexOf("4:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("4:"));
+            String kq5 = firstStr.substring(firstStr.indexOf("4:") + 3, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq6 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq7 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq8 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq9 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq10 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq11 = firstStr.substring(0, firstStr.indexOf("5:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("5:") + 3);
+            String kq12 = firstStr.substring(0, firstStr.indexOf("6:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("6:") + 2);
+            String kq13 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq14 = firstStr.substring(0, firstStr.indexOf("-")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("-") + 2);
+            String kq15 = firstStr.substring(0, firstStr.indexOf("7:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("7:") + 2);
+            String kq16 = firstStr.substring(0, firstStr.indexOf("8:")).trim();
+            firstStr = firstStr.substring(firstStr.indexOf("8:") + 2);
+            String kq17 = firstStr.substring(0, firstStr.length()).trim();
+            kq.setKq0(kq0);
+            kq.setKq1(kq1);
+            kq.setKq2(kq2);
+            kq.setKq3(kq3);
+            kq.setKq4(kq4);
+            kq.setKq5(kq5);
+            kq.setKq6(kq6);
+            kq.setKq7(kq7);
+            kq.setKq8(kq8);
+            kq.setKq9(kq9);
+            kq.setKq10(kq10);
+            kq.setKq11(kq11);
+            kq.setKq12(kq12);
+            kq.setKq13(kq13);
+            kq.setKq14(kq14);
+            kq.setKq15(kq15);
+            kq.setKq16(kq16);
+            kq.setKq17(kq17);
+            kq.setLocation(location);
+            kq.setNgaychot(ngaychot);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return kq;
+    }
+
+    @Override
+    public void impkqmn(List<ketquamnSub> ketquamnList, String ngaychot) {
+        rbkRepo.insertKetQuaMN(ketquamnList, ngaychot);
     }
 
 }

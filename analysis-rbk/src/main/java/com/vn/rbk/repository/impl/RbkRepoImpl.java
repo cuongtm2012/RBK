@@ -5,17 +5,18 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.vn.rbk.MongoConfig;
-import com.vn.rbk.domain.caudep;
-import com.vn.rbk.domain.chotKQ;
-import com.vn.rbk.domain.ketqua;
-import com.vn.rbk.domain.trend;
+import com.vn.rbk.domain.*;
 import com.vn.rbk.repository.MongoManager;
 import com.vn.rbk.repository.base.RbkRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -49,6 +50,12 @@ public class RbkRepoImpl implements RbkRepo {
                 document.put("ratio_lo", chotKQ2.getRatio_lo());
                 document.put("ratio_lobt", chotKQ2.getRatio_lobt());
                 document.put("ratio_debt", chotKQ2.getDebt());
+
+                Date todayDate = Calendar.getInstance().getTime();
+                DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+                String strDate = dateFormat.format(todayDate);
+
+                document.put("time", strDate);
                 chotkqCl.insert(document);
             }
         } catch (Exception e) {
@@ -91,6 +98,26 @@ public class RbkRepoImpl implements RbkRepo {
             document.put("kq24", kq.getKq24());
             document.put("kq25", kq.getKq25());
             document.put("kq26", kq.getKq26());
+            document.put("dau0", kq.getDau0());
+            document.put("dau1", kq.getDau1());
+            document.put("dau2", kq.getDau2());
+            document.put("dau3", kq.getDau3());
+            document.put("dau4", kq.getDau4());
+            document.put("dau5", kq.getDau5());
+            document.put("dau6", kq.getDau6());
+            document.put("dau7", kq.getDau7());
+            document.put("dau8", kq.getDau8());
+            document.put("dau9", kq.getDau9());
+            document.put("dit0", kq.getDit0());
+            document.put("dit1", kq.getDit1());
+            document.put("dit2", kq.getDit2());
+            document.put("dit3", kq.getDit3());
+            document.put("dit4", kq.getDit4());
+            document.put("dit5", kq.getDit5());
+            document.put("dit6", kq.getDit6());
+            document.put("dit7", kq.getDit7());
+            document.put("dit8", kq.getDit8());
+            document.put("dit9", kq.getDit9());
             mongo.ketqua(mongoConfig).insert(document);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -110,6 +137,8 @@ public class RbkRepoImpl implements RbkRepo {
     @Override
     public void insertCauDep(caudep cd) {
         try {
+            delCaudep(cd.getNgaychot());
+
             BasicDBObject document = new BasicDBObject();
             document.put("ngaychot", cd.getNgaychot());
             document.put("limit1nhay1lon0", cd.getLimit1nhay1lon0());
@@ -128,20 +157,22 @@ public class RbkRepoImpl implements RbkRepo {
             document.put("limit14nhay1lon0", cd.getLimit14nhay1lon0());
             document.put("limit15nhay1lon0", cd.getLimit15nhay1lon0());
             document.put("limit16nhay1lon0", cd.getLimit16nhay1lon0());
-            document.put("limit17nhay1lon0", cd.getLimit1nhay1lon0());
-            document.put("limit18nhay1lon0", cd.getLimit1nhay1lon0());
-            document.put("limit19nhay1lon0", cd.getLimit1nhay1lon0());
-            document.put("limit20nhay1lon0", cd.getLimit1nhay1lon0());
-            document.put("limit1nhay2lon0", cd.getLimit1nhay1lon0());
-            document.put("limit2nhay2lon0", cd.getLimit1nhay1lon0());
-            document.put("limit3nhay2lon0", cd.getLimit1nhay1lon0());
-            document.put("limit4nhay2lon0", cd.getLimit1nhay1lon0());
-            document.put("limit5nhay2lon0", cd.getLimit1nhay1lon0());
-            document.put("limit1nhay3lon0", cd.getLimit1nhay1lon0());
-            document.put("limit2nhay3lon0", cd.getLimit1nhay1lon0());
-            document.put("limit3nhay3lon0", cd.getLimit1nhay1lon0());
-            document.put("limit4nhay3lon0", cd.getLimit1nhay1lon0());
-            document.put("limit5nhay3lon0", cd.getLimit1nhay1lon0());
+            document.put("limit17nhay1lon0", cd.getLimit17nhay1lon0());
+            document.put("limit18nhay1lon0", cd.getLimit18nhay1lon0());
+            document.put("limit19nhay1lon0", cd.getLimit19nhay1lon0());
+            document.put("limit20nhay1lon0", cd.getLimit20nhay1lon0());
+
+            document.put("limit1nhay2lon0", cd.getLimit1nhay2lon0());
+            document.put("limit2nhay2lon0", cd.getLimit2nhay2lon0());
+            document.put("limit3nhay2lon0", cd.getLimit3nhay2lon0());
+            document.put("limit4nhay2lon0", cd.getLimit4nhay2lon0());
+            document.put("limit5nhay2lon0", cd.getLimit5nhay2lon0());
+
+            document.put("limit1nhay3lon0", cd.getLimit1nhay3lon0());
+            document.put("limit2nhay3lon0", cd.getLimit2nhay3lon0());
+            document.put("limit3nhay3lon0", cd.getLimit3nhay3lon0());
+            document.put("limit4nhay3lon0", cd.getLimit4nhay3lon0());
+            document.put("limit5nhay3lon0", cd.getLimit5nhay3lon0());
 
             document.put("limit1nhay1lon1", cd.getLimit1nhay1lon1());
             document.put("limit2nhay1lon1", cd.getLimit2nhay1lon1());
@@ -241,6 +272,27 @@ public class RbkRepoImpl implements RbkRepo {
     }
 
     @Override
+    public void insertKetQuaMN(List<ketquamnSub> ketquamnList, String ngaychot) {
+        try {
+            BasicDBObject document = new BasicDBObject();
+            document.put("ngaychot", ngaychot);
+            ArrayList<DBObject> array = new ArrayList<DBObject>();
+            for (ketquamnSub sub : ketquamnList) {
+                DBObject dbo;
+                dbo = sub.bsonFromPojo();
+                array.add(dbo);
+            }
+            document.put("lotto", array);
+            int count = mongo.ketquamn(mongoConfig).find(new BasicDBObject("ngaychot", ngaychot)).count();
+            if (count < 1) {
+                mongo.ketquamn(mongoConfig).insert(document);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void dltTrend(String date) {
         try {
             BasicDBObject document = new BasicDBObject();
@@ -251,75 +303,14 @@ public class RbkRepoImpl implements RbkRepo {
         }
     }
 
-    @Override
-    public boolean isExistCauDepSW(String date) {
-        BasicDBObject query = new BasicDBObject();
-        query.put("ngaychot", date);
-        DBCursor dbCursor = mongo.caudepsw(mongoConfig).find(query);
-        while (dbCursor.hasNext()) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public void insertCauDepSW(caudep cd) {
+    private void delCaudep(String date) {
         try {
             BasicDBObject document = new BasicDBObject();
-            document.put("ngaychot", cd.getNgaychot());
-//            document.put("listcaudep", cd.getListCaudep());
-            mongo.caudepsw(mongoConfig).insert(document);
+            document.put("ngaychot", date);
+            mongo.caudep(mongoConfig).remove(document);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
     }
 
-    @Override
-    public boolean isExistCauDep3Ngay(String date) {
-        BasicDBObject query = new BasicDBObject();
-        query.put("ngaychot", date);
-        DBCursor dbCursor = mongo.caudep3ngay(mongoConfig).find(query);
-        while (dbCursor.hasNext()) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public void insertCauDep3Ngay(caudep cd) {
-        try {
-            BasicDBObject document = new BasicDBObject();
-            document.put("ngaychot", cd.getNgaychot());
-//            document.put("listcaudep", cd.getListCaudep());
-            mongo.caudep3ngay(mongoConfig).insert(document);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-    }
-
-    @Override
-    public List<caudep> listCaudep3Ngay() {
-        int i = 0;
-        List<caudep> listCaudep = new ArrayList<caudep>();
-        try {
-            BasicDBObject document = new BasicDBObject();
-            document.put("ngaychot", -1);
-
-            DBCursor cursor = mongo.caudep3ngay(mongoConfig).find().sort(document);
-            while (cursor.hasNext()) {
-                caudep cd = new caudep();
-                DBObject dbobject = cursor.next();
-                cd.setNgaychot(dbobject.get("ngaychot").toString());
-//                cd.setListCaudep(dbobject.get("listcaudep").toString());
-                listCaudep.add(cd);
-                i++;
-                if (i == 6) {
-                    return listCaudep;
-                }
-            }
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-        return listCaudep;
-    }
 }

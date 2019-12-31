@@ -44,4 +44,8 @@ public class MongoManager {
     public DBCollection trend(MongoConfig mongoConfig) {
         return initDB(mongoConfig).getCollection("trend");
     }
+
+    public DBCollection ketquamn(MongoConfig mongoConfig) {
+        return initDB(mongoConfig).getCollection("ketquamn");
+    }
 }

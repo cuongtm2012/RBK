@@ -1,8 +1,6 @@
 package com.vn.rbk.services.impl;
 
-import com.vn.rbk.domain.chotKQ;
-import com.vn.rbk.domain.ketqua;
-import com.vn.rbk.domain.trend;
+import com.vn.rbk.domain.*;
 import com.vn.rbk.repository.base.KQXSRepo;
 import com.vn.rbk.services.base.KQXSServices;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +23,8 @@ public class KQXSServicesImpl implements KQXSServices {
     }
 
     @Override
-    public List<ketqua> getketqua(String ngaychot) {
-        List<ketqua> ketquaList = kqxsRepo.getKetQua(ngaychot);
+    public List<ketqua> getketqua(String ngaychot, Integer skip, Integer limit) {
+        List<ketqua> ketquaList = kqxsRepo.getKetQua(ngaychot, skip, limit);
         return ketquaList;
     }
 
@@ -34,5 +32,17 @@ public class KQXSServicesImpl implements KQXSServices {
     public trend getTrending(String ngaychot) {
         trend trend = kqxsRepo.getTrending(ngaychot);
         return trend;
+    }
+
+    @Override
+    public caudepDTO caudep(String ngaychot, Integer limit, Integer nhay, Integer lon) {
+        caudepDTO cd = kqxsRepo.getcaudep(ngaychot, limit, nhay, lon);
+        return cd;
+    }
+
+    @Override
+    public ketquamn ketquamn(String ngaychot) {
+        ketquamn kq = kqxsRepo.getketquamn(ngaychot);
+        return kq;
     }
 }

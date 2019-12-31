@@ -1,10 +1,7 @@
 package com.vn.rbk.repository.base;
 
 import com.mongodb.DBCollection;
-import com.vn.rbk.domain.caudep;
-import com.vn.rbk.domain.chotKQ;
-import com.vn.rbk.domain.ketqua;
-import com.vn.rbk.domain.trend;
+import com.vn.rbk.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +26,5 @@ public interface RbkRepo {
 
     void dltChotKQ(DBCollection chotKQCl, String email, String date);
 
-    boolean isExistCauDepSW(String date);
-
-    void insertCauDepSW(caudep cd);
-
-    boolean isExistCauDep3Ngay(String date);
-
-    void insertCauDep3Ngay(caudep cd);
-
-    List<caudep> listCaudep3Ngay();
-
+    void insertKetQuaMN(List<ketquamnSub> ketquamnList, String ngaychot);
 }

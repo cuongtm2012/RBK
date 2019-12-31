@@ -6,11 +6,10 @@
 package com.vn.rbk.controller;
 
 import com.vn.rbk.AppConfig;
-import com.vn.rbk.domain.chotKQ;
-import com.vn.rbk.domain.ketqua;
-import com.vn.rbk.domain.trend;
+import com.vn.rbk.domain.*;
 import com.vn.rbk.services.base.BatchServices;
 import com.vn.rbk.services.base.KQXSServices;
+import com.vn.rbk.services.base.RbkServices;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.NotBlank;
 import org.slf4j.Logger;
@@ -36,6 +35,9 @@ public class KQXSController {
     private KQXSServices kqxsServices;
 
     @Autowired
+    private RbkServices rbkServices;
+
+    @Autowired
     private BatchServices batchServices;
 
     @Autowired
@@ -59,10 +61,12 @@ public class KQXSController {
     @CrossOrigin
     @GetMapping(value = "/ketqua")
     public ResponseEntity<?> ketqua(
-            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot
+            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot,
+            @Valid @NotBlank @RequestParam(value = "skip", defaultValue = "0") Integer skip,
+            @Valid @NotBlank @RequestParam(value = "limit", defaultValue = "0") Integer limit
     ) {
         logger.info("--------- START ---------- ::" + System.currentTimeMillis());
-        List<ketqua> ketquaList = kqxsServices.getketqua(ngaychot);
+        List<ketqua> ketquaList = kqxsServices.getketqua(ngaychot, skip, limit);
         logger.info("--------- END ---------- ::" + System.currentTimeMillis());
         return new ResponseEntity<>(ketquaList, HttpStatus.OK);
     }
@@ -76,5 +80,45 @@ public class KQXSController {
         trend trend = kqxsServices.getTrending(ngaychot);
         logger.info("--------- END ---------- ::" + System.currentTimeMillis());
         return new ResponseEntity<>(trend, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/caudep")
+    public ResponseEntity<?> caudep(
+            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot,
+            @Valid @NotBlank @RequestParam(value = "limit", defaultValue = "0") Integer limit,
+            @Valid @NotBlank @RequestParam(value = "nhay", defaultValue = "0") Integer nhay,
+            @Valid @NotBlank @RequestParam(value = "lon", defaultValue = "0") Integer lon
+    ) {
+        logger.info("--------- START ---------- ::" + System.currentTimeMillis());
+        caudepDTO cd = kqxsServices.caudep(ngaychot, limit, nhay, lon);
+        logger.info("--------- END ---------- ::" + System.currentTimeMillis());
+        return new ResponseEntity<>(cd, HttpStatus.OK);
+    }
+
+
+    @CrossOrigin
+    @GetMapping(value = "/limitday")
+    public ResponseEntity<?> limitday(
+            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot
+    ) {
+        logger.info("--------- START ---------- ::" + System.currentTimeMillis());
+        // get limit day
+        String url = myConfig.getCaudepURL();
+        url = String.format(url, 5, ngaychot, 1, 1);
+        int limitday = rbkServices.limitCaudep(url);
+        logger.info("--------- END ---------- ::" + System.currentTimeMillis());
+        return new ResponseEntity<>(limitday, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/ketquamn")
+    public ResponseEntity<?> ketquamn(
+            @RequestParam(value = "ngaychot", defaultValue = "") String ngaychot
+    ) {
+        logger.info("--------- START ---------- ::" + System.currentTimeMillis());
+        ketquamn kq = kqxsServices.ketquamn(ngaychot);
+        logger.info("--------- END ---------- ::" + System.currentTimeMillis());
+        return new ResponseEntity<>(kq, HttpStatus.OK);
     }
 }
